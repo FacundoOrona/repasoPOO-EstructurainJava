@@ -1,0 +1,124 @@
+🗓️ Plan de Estudio de 7 Días
+Día 1 – Fundamentos de Estructuras de Datos
+Teoría:
+
+¿Qué es una estructura de datos?
+
+Tipos primitivos vs. estructuras de datos.
+
+Listas, pilas, colas, conjuntos, diccionarios (hashmaps).
+
+Práctica:
+
+Crear una lista y recorrerla.
+
+Implementar una pila y una cola con listas.
+
+Ejercicio clave:
+
+Simular una fila en una panadería (cola FIFO).
+
+Día 2 – Arreglos y Listas Enlazadas
+Teoría:
+
+Diferencias entre arreglos (arrays) y listas enlazadas.
+
+Tipos: simple, doble y circular.
+
+Práctica:
+
+Implementar una lista enlazada simple desde cero.
+
+Ejercicio clave:
+
+Insertar, eliminar y buscar elementos en una lista enlazada.
+
+Día 3 – Pilas y Colas
+Teoría:
+
+LIFO vs FIFO.
+
+Casos de uso comunes.
+
+Práctica:
+
+Implementar pila con push y pop.
+
+Implementar cola con enqueue y dequeue.
+
+Ejercicio clave:
+
+Verificar balanceo de paréntesis con una pila.
+
+Día 4 – Árboles y Grafos (básico)
+Teoría:
+
+¿Qué es un árbol? Nodo, raíz, hojas.
+
+Árbol binario vs. árbol binario de búsqueda.
+
+Qué es un grafo, tipos de representación.
+
+Práctica:
+
+Implementar un árbol binario básico e insertar nodos.
+
+Ejercicio clave:
+
+Recorridos en profundidad: inorden, preorden, postorden.
+
+Día 5 – Fundamentos de Programación Orientada a Objetos
+Teoría:
+
+Clases y objetos.
+
+Encapsulamiento, herencia, polimorfismo, abstracción.
+
+Práctica:
+
+Crear una clase Animal y subclases Perro y Gato.
+
+Ejercicio clave:
+
+Usar herencia para reutilizar código.
+
+Día 6 – POO Avanzado y Práctica Mixta
+Teoría:
+
+Métodos estáticos, clases abstractas, interfaces.
+
+Principios SOLID (introductorio).
+
+Práctica:
+
+Implementar una interfaz y múltiples clases que la usen.
+
+Ejercicio clave:
+
+Simular un sistema de transporte con clases abstractas.
+
+Día 7 – Simulacro de Examen + Revisión
+Simulacro:
+
+2 ejercicios de estructuras de datos.
+
+2 ejercicios de programación orientada a objetos.
+
+1 ejercicio integrador.
+
+Revisión:
+
+Repasar errores.
+
+Rehacer ejercicios difíciles.
+
+Anotar dudas clave.
+
+Recursos recomendados
+Visualgo.net – Visualizador de estructuras de datos.
+
+leetcode.com – Ejercicios para practicar.
+
+Programiz – Teoría + práctica en línea.
+
+Lenguaje sugerido: Python o Java (dependiendo del lenguaje del bootcamp).
