@@ -1,4 +1,4 @@
-package Listas;
+package Dia01;
 import java.util.Stack;
 
 public class StackPractica {

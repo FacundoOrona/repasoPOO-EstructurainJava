@@ -1,3 +1,5 @@
+package Dia02;
+
 public class LinkedList {
     Node head;
 
