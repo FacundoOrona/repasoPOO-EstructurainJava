@@ -42,7 +42,7 @@ abstract class Empleado{
 
     //metodos
     public String presentarse(){
-        return "Hola soy " + nombre + " y tengo " + edad + "años";
+        return "Hola soy " + nombre + " y tengo " + edad + " años";
     }
 
     public String cumplirAnios(){
