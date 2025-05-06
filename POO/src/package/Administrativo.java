@@ -15,6 +15,14 @@ public class Administrativo extends Empleado implements ITrabajable{
         this.sector = s;
     }
 
+    public String getSector() {
+        return sector;
+    }
+    
+    public void setSector(String sector) {
+        this.sector = sector;
+    }
+    
     @Override
     public double calcularSueldo() {
         double salarioTotal = this.getSalarioBase() * 1.10;
