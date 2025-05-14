@@ -1,11 +1,47 @@
 package proyecto.entidades;
 
-public class Empleado extends Usuario{
+import java.util.Date;
+import java.util.List;
+import java.util.Scanner;
 
-    public Empleado(){}
+public class Empleado extends Usuario {
 
-    public Empleado(String nombre, String dni, String email){
+    Scanner sc = new Scanner(System.in);
+
+    public Empleado() {
+    }
+
+    public Empleado(String nombre, String dni, String email) {
         super(nombre, dni, email);
+    }
+
+    public void verPrestamo(List<Prestamo> prestamos) {
+        for (Prestamo p : prestamos) {
+            System.out.println("Libro: " + p.getLibro().getTitulo());
+            System.out.println("Cliente: " + p.getCliente().getNombre());
+            System.out.println("fechaPrestamo: " + p.getFechaPrestamo());
+
+            if (p.getFechaDevolucion() != null) {
+                System.out.println("El libro esta disponible");
+            } else {
+                System.out.println("El libro aun no ha sido devuelto");
+            }
+
+        }
+    }
+
+    public void registrarLibro(Libro libro) {
+        System.out.println("Ingrese los datos para registrar el libro");
+            System.out.println("Ingrese titulo:");
+                String titulo = sc.nextLine();
+                    libro.setTitulo(titulo);
+            System.out.println("Ingrese autor:");
+                String autor = sc.nextLine();
+                    libro.setAutor(autor);
+            System.out.println("Ingrese año de publicacion");
+                int anio = sc.nextInt();
+                    libro.setAnioPublicacion(anio);
+                    libro.setDisponible(true);
     }
 
 }
