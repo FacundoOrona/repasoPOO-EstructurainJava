@@ -24,43 +24,37 @@ public class Biblioteca {
     }
 
     @Override
-    public String toString() {
-        String biblioteca = " ";
-        for(Libro l : libros){
-            l.toString();
-        }
-        return biblioteca;
+public String toString() {
+    StringBuilder sb = new StringBuilder();
+
+    sb.append("=== Libros ===\n");
+    for (Libro l : libros) {
+        sb.append(l).append("\n");
     }
 
-    public Cliente encontrarCliente(String dni) {
-        Cliente c = null;
-        for (Usuario u : usuarios) {
-            if (u.getDni().equals(dni) && u instanceof Cliente) {
-                c = (Cliente) u;
-            }
-        }
-        return c;
+    sb.append("\n=== Usuarios ===\n");
+    for (Usuario u : usuarios) {
+        sb.append(u).append("\n");
     }
 
-    public Libro encontrarLibro(int id) {
-        Libro l = null;
-        for (Libro libro : libros) {
-            if (libro.getId() == id && libro.getDisponible()) {
-                l = libro;
-                l.setDisponible(false);
-            }
-        }
-        return l;
+    sb.append("\n=== Préstamos ===\n");
+    for (Prestamo p : prestamos) {
+        sb.append(p).append("\n");
     }
+
+    return sb.toString();
+}
 
     public void prestarLibro(String dniCliente, int idLibro) {
-        Cliente c = encontrarCliente(dniCliente);
+        Cliente c = new Cliente();
+        c = c.encontrarCliente(dniCliente, usuarios);
         if (c == null) {
             System.out.println("❌ Cliente no encontrado o no existente");
             return;
         }
 
-        Libro l = encontrarLibro(idLibro);
+        Libro l = new Libro();
+        l = l.encontrarLibro(idLibro, libros);
         if (l == null) {
             System.out.println("❌ Libro no encontrado o no disponible");
             return;

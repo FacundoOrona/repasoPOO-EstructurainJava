@@ -1,8 +1,10 @@
 package proyecto.entidades;
 
+import java.util.List;
+
 import proyecto.interfaces.Prestable;
 
-public class Libro implements Prestable{
+public class Libro implements Prestable {
 
     private String titulo;
     private String autor;
@@ -10,9 +12,10 @@ public class Libro implements Prestable{
     private boolean disponible;
     private int id;
 
-    public Libro(){};
+    public Libro() {
+    };
 
-    public Libro(String titulo, String autor, int anioPublicacion, int id){
+    public Libro(String titulo, String autor, int anioPublicacion, int id) {
         this.titulo = titulo;
         this.autor = autor;
         this.anioPublicacion = anioPublicacion;
@@ -20,44 +23,52 @@ public class Libro implements Prestable{
         this.id = id;
     }
 
-    //setters
+    // setters
     public void setAnioPublicacion(int anioPublicacion) {
         this.anioPublicacion = anioPublicacion;
     }
+
     public void setAutor(String autor) {
         this.autor = autor;
     }
+
     public void setDisponible(boolean disponible) {
         this.disponible = disponible;
     }
+
     public void setId(int id) {
         this.id = id;
     }
+
     public void setTitulo(String titulo) {
         this.titulo = titulo;
     }
 
-    //getters
+    // getters
     public int getAnioPublicacion() {
         return anioPublicacion;
     }
+
     public String getAutor() {
         return autor;
     }
+
     public int getId() {
         return id;
     }
+
     public String getTitulo() {
         return titulo;
     }
+
     public boolean getDisponible() {
         return disponible;
     }
 
     @Override
     public String toString() {
-        return  "Id: " + id + "\n" +
-                "Libro: " + titulo + "\n" + 
+        return "Id: " + id + "\n" +
+                "Libro: " + titulo + "\n" +
                 "autor: " + autor + "\n" +
                 "Año de publicacion: " + anioPublicacion + "\n" +
                 "Disponibilidad: " + titulo + "\n";
@@ -73,5 +84,15 @@ public class Libro implements Prestable{
         disponible = true;
     }
 
-}
+    public Libro encontrarLibro(int id, List<Libro> libros) {
+        Libro l = null;
+        for (Libro libro : libros) {
+            if (libro.getId() == id && libro.getDisponible()) {
+                l = libro;
+                l.setDisponible(false);
+            }
+        }
+        return l;
+    }
 
+}

@@ -52,21 +52,26 @@ public class Prestamo {
 
     @Override
     public String toString() {
-        return super.toString();
+        return "Prestamo{" +
+                "libro=" + libro +
+                ", cliente=" + cliente +
+                ", fechaPrestamo=" + fechaPrestamo +
+                ", fechaDevolucion=" + (fechaDevolucion != null ? fechaDevolucion : "No devuelto") +
+                '}';
     }
 
-    public void devolverLibro(){
+    public void devolverLibro() {
         Date fechadev = new Date();
         setFechaDevolucion(fechadev);
         libro.devolver();
         System.out.println("El libro ha sido devuelto con exito");
     }
 
-    public boolean isActivo(){
-        if(libro.getDisponible() == true){
+    public boolean isActivo() {
+        if (libro.getDisponible() == true) {
             System.out.println("El libro esta disponible");
             return true;
-        }else{
+        } else {
             System.out.println("El libro no esta disponible");
             return false;
         }
