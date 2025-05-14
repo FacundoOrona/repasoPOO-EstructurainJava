@@ -77,6 +77,7 @@ public class Libro implements Prestable {
     @Override
     public void prestar() {
         disponible = false;
+        System.out.println("Libro prestado con exito");
     }
 
     @Override

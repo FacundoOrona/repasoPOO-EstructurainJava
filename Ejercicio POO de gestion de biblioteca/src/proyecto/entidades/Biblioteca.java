@@ -64,4 +64,18 @@ public String toString() {
         prestamos.add(p);
         System.out.println("✅ Préstamo realizado correctamente");
     }
+
+    public void devolverLibro(int idLibro){
+        Libro l = new Libro();
+        l = l.encontrarLibro(idLibro, libros);
+
+        if (l == null) {
+            System.out.println("❌ Libro no encontrado o no disponible");
+            return;
+        }
+        
+        l.devolver();
+
+        System.out.println("El libro " + l.getTitulo() + " fue devuelto con exito");
+    }
 }
