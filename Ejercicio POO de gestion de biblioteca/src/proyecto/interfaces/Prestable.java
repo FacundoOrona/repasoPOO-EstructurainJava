@@ -2,8 +2,8 @@ package proyecto.interfaces;
 
 public interface Prestable {
 
-    void devolver();
+    public abstract void devolver();
 
-    void prestar();
+    public abstract void prestar();
 
 }
