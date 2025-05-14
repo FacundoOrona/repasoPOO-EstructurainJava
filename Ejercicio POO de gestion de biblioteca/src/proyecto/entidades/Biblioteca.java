@@ -61,7 +61,7 @@ public String toString() {
             return;
         }
 
-        l.setDisponible(false);
+        l.prestar();
 
         Prestamo p = new Prestamo(l, c, new Date());
         prestamos.add(p);
@@ -82,7 +82,7 @@ public String toString() {
         p = p.encontrarPrestamo(idLibro, prestamos);
         p.devolverLibro();
 
-        System.out.println("El libro " + l.getTitulo() + " fue devuelto con exito");
+        System.out.println("✅El libro " + l.getTitulo() + " fue devuelto con exito");
     }
 
     public void mostrarPrestamosActivos(){
@@ -90,6 +90,18 @@ public String toString() {
             if (p.isActivo()) {
                 System.out.println(p.toString());
             }
+        }
+    }
+
+    public Libro buscarLibroPorTitulo (String titulo) {
+        Libro l = new Libro();
+        l = l.encontrarLibroPorTitulo(titulo, libros);
+        if (l == null) {
+            System.out.println("Libro no encontrado");
+            return null;
+        }else{
+            System.out.println("Libro " + l.getTitulo() + " encontrado");
+            return l;
         }
     }
 }

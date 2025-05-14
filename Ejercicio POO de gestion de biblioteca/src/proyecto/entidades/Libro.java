@@ -77,7 +77,6 @@ public class Libro implements Prestable {
     @Override
     public void prestar() {
         disponible = false;
-        System.out.println("Libro prestado con exito");
     }
 
     @Override
@@ -90,6 +89,16 @@ public class Libro implements Prestable {
         for (Libro libro : libros) {
             if (libro.getId() == id && libro.getDisponible()) {
                 l = libro;
+            }
+        }
+        return l;
+    }
+
+    public Libro encontrarLibroPorTitulo(String titulo, List<Libro> libros){
+        Libro l = null;
+        for (Libro ll : libros){
+            if(ll.getTitulo().equals(titulo)){
+                l = ll;
             }
         }
         return l;
