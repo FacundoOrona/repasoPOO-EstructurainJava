@@ -90,7 +90,6 @@ public class Libro implements Prestable {
         for (Libro libro : libros) {
             if (libro.getId() == id && libro.getDisponible()) {
                 l = libro;
-                l.setDisponible(false);
             }
         }
         return l;

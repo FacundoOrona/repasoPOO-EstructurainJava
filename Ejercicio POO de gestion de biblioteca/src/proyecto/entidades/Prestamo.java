@@ -1,6 +1,7 @@
 package proyecto.entidades;
 
 import java.util.Date;
+import java.util.List;
 
 public class Prestamo {
 
@@ -69,12 +70,20 @@ public class Prestamo {
 
     public boolean isActivo() {
         if (libro.getDisponible() == true) {
-            System.out.println("El libro esta disponible");
             return true;
         } else {
-            System.out.println("El libro no esta disponible");
             return false;
         }
+    }
+
+    public Prestamo encontrarPrestamo (int idLibro, List<Prestamo> prestamos){
+        Prestamo p = null;
+        for (Prestamo lp : prestamos){
+            if(lp.getLibro().getId() == idLibro){
+                p = lp;
+            }
+        }
+        return p;
     }
 
 }
