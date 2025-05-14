@@ -12,11 +12,11 @@ public class Libro implements Prestable{
 
     public Libro(){};
 
-    public Libro(String titulo, String autor, int anioPublicacion, boolean disponible, int id){
+    public Libro(String titulo, String autor, int anioPublicacion, int id){
         this.titulo = titulo;
         this.autor = autor;
         this.anioPublicacion = anioPublicacion;
-        this.disponible = disponible;
+        this.disponible = true;
         this.id = id;
     }
 

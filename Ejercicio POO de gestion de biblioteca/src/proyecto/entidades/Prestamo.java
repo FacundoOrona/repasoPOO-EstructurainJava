@@ -12,11 +12,10 @@ public class Prestamo {
     public Prestamo() {
     }
 
-    public Prestamo(Libro libro, Cliente cliente, Date fechaPrestamo, Date fechaDevolucion) {
+    public Prestamo(Libro libro, Cliente cliente, Date fechaPrestamo) {
         this.libro = libro;
         this.cliente = cliente;
         this.fechaPrestamo = fechaPrestamo;
-        this.fechaDevolucion = fechaDevolucion;
     }
 
     public void setCliente(Cliente cliente) {
@@ -72,7 +71,5 @@ public class Prestamo {
             return false;
         }
     }
-
-
 
 }
