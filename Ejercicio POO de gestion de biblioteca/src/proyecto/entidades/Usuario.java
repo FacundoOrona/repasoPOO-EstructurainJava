@@ -10,7 +10,7 @@ public abstract class Usuario {
 
     public Usuario(){
         this.id = generarId();
-    };
+    }
 
     public Usuario(String nombre, String dni, String email){
         this.nombre = nombre;
