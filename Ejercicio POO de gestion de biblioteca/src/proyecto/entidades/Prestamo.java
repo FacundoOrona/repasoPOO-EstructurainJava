@@ -56,6 +56,23 @@ public class Prestamo {
         return super.toString();
     }
 
+    public void devolverLibro(){
+        Date fechadev = new Date();
+        setFechaDevolucion(fechadev);
+        libro.devolver();
+        System.out.println("El libro ha sido devuelto con exito");
+    }
+
+    public boolean isActivo(){
+        if(libro.getDisponible() == true){
+            System.out.println("El libro esta disponible");
+            return true;
+        }else{
+            System.out.println("El libro no esta disponible");
+            return false;
+        }
+    }
+
 
 
 }

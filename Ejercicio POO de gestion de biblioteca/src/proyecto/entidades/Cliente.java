@@ -1,15 +1,18 @@
 package proyecto.entidades;
 
+
+import java.util.ArrayList;
 import java.util.List;
 
 public class Cliente extends Usuario{
     
-    private List<Prestamo> prestamosActivos; 
+    private List<Prestamo> prestamosActivos;
 
-    public Cliente(){}
+    public Cliente(){prestamosActivos = new ArrayList<>();}
 
     public Cliente(String nombre, String dni, String email, List<Prestamo> prestamosActivos){
         super(nombre, dni, email);
+        prestamosActivos = new ArrayList<>();
         this.prestamosActivos = prestamosActivos;
     }
 
