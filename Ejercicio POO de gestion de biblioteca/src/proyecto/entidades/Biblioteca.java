@@ -116,10 +116,10 @@ public class Biblioteca {
 
     public void devolverLibro(int idLibro) {
         Libro l = new Libro();
-        l = l.encontrarLibro(idLibro, libros);
+        l = l.encontrarLibroPrestado(idLibro, libros);
 
         if (l == null) {
-            System.out.println("❌ Libro no encontrado o no disponible");
+            System.out.println("❌ Libro no encontrado o aun sigue disponible");
             return;
         }
 

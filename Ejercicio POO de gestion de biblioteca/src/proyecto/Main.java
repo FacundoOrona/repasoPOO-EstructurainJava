@@ -77,7 +77,9 @@ public class Main {
                     System.out.println("******************************");
                     break;
                 case 5: // devolver libro
-
+                    System.out.println("Ingrese el ID del libro que quiere devolver");
+                    int idDevolver = sc.nextInt();
+                    biblioteca.devolverLibro(idDevolver);
                     break;
                 case 6: // Listar empleados
                     System.out.println("*** Lista de empleados ***");

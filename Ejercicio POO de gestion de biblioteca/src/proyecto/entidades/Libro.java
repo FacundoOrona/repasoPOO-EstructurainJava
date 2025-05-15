@@ -74,11 +74,11 @@ public class Libro implements Prestable {
 
     @Override
     public String toString() {
-        return "Id: " + id + " * " +
-                "Libro: " + titulo + " * " +
-                "Autor: " + autor + " * " +
-                "Año de publicación: " + anioPublicacion + " * " +
-                "Disponibilidad: " + (disponible ? "Disponible" : "No disponible") + " *";
+        return  "Id: " + id + " | " +
+                "Libro: " + titulo + " | " +
+                "Autor: " + autor + " | " +
+                "Año de publicación: " + anioPublicacion + " | " +
+                "Disponibilidad: " + (disponible ? "Disponible" : "No disponible") + " | ";
     }
 
     @Override
@@ -94,14 +94,17 @@ public class Libro implements Prestable {
     public Libro encontrarLibro(int id, List<Libro> libros) {
         Libro l = null;
         for (Libro libro : libros) {
-            System.out.println("Comparando " + libro.getId() + " con " + id);
-            if (libro.getDisponible() == true) {
-                System.out.println("Libro disponible");
-            } else if (libro.getDisponible() == false) {
-                System.out.println("Libro no disponible");
-            }
-
             if (libro.getId() == id && libro.getDisponible() == true) {
+                l = libro;
+            }
+        }
+        return l;
+    }
+
+    public Libro encontrarLibroPrestado(int id, List<Libro> libros) {
+        Libro l = null;
+        for (Libro libro : libros) {
+            if (libro.getId() == id && libro.getDisponible() == false) {
                 l = libro;
             }
         }

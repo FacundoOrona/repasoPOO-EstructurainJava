@@ -53,12 +53,11 @@ public class Prestamo {
 
     @Override
     public String toString() {
-        return "Prestamo{" +
-                "libro=" + libro +
-                ", cliente=" + cliente +
-                ", fechaPrestamo=" + fechaPrestamo +
-                ", fechaDevolucion=" + (fechaDevolucion != null ? fechaDevolucion : "No devuelto") +
-                '}';
+        return "Prestamo:" +
+                "\nDatos del libro: " + libro + 
+                "\nCliente: " + cliente +
+                "\nFechaPrestamo: " + fechaPrestamo +
+                "\nFechaDevolucion: " + (fechaDevolucion != null ? fechaDevolucion : "No devuelto");
     }
 
     public void devolverLibro() {
@@ -79,6 +78,7 @@ public class Prestamo {
     public Prestamo encontrarPrestamo (int idLibro, List<Prestamo> prestamos){
         Prestamo p = null;
         for (Prestamo lp : prestamos){
+            System.out.println("Comparando " + lp.getLibro().getId() + " con " + idLibro);
             if(lp.getLibro().getId() == idLibro){
                 p = lp;
             }
