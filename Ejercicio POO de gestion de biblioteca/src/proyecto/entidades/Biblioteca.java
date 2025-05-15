@@ -24,27 +24,33 @@ public class Biblioteca {
 
     public void registrarEmpleado(Empleado e) {
         System.out.println("Ingrese los datos para registrar Empleado");
-        System.out.println("Nombre");
+        System.out.println("Nombre:");
             e.setNombre(sc.nextLine());
-        System.out.println("Email");
+        System.out.println("Email:");
             e.setEmail(sc.nextLine());
-        System.out.println("DNI");
+        System.out.println("DNI:");
             e.setDni(sc.nextLine());
         empleados.add(e);
     }
 
     public void registrarCliente(Cliente c) {
         System.out.println("Ingrese los datos para registrar Cliente");
-        System.out.println("Nombre");
+        System.out.println("Nombre:");
             c.setNombre(sc.nextLine());
-        System.out.println("Email");
+        System.out.println("Email:");
             c.setEmail(sc.nextLine());
-        System.out.println("DNI");
+        System.out.println("DNI:");
             c.setDni(sc.nextLine());
         clientes.add(c);
     }
 
     public void registrarLibro(Libro l) {
+        System.out.println("Titulo del libro:");
+        l.setTitulo(sc.nextLine());
+        System.out.println("Autor:");
+        l.setAutor(sc.nextLine());
+        System.out.println("Ingrese año de publicacion");
+        l.setAnioPublicacion(sc.nextInt());
         libros.add(l);
     }
 

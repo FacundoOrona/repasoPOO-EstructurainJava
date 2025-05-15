@@ -5,6 +5,7 @@ import java.util.Scanner;
 import proyecto.entidades.Biblioteca;
 import proyecto.entidades.Cliente;
 import proyecto.entidades.Empleado;
+import proyecto.entidades.Libro;
 
 public class Main {
     public static void main(String[] args) {
@@ -29,7 +30,7 @@ public class Main {
 
             switch (opc) {
                 case 1: // Registrar un usuario.
-                    System.out.println("Desea registrar un Empleado (Ingrese 1) o un  Cliente (Ingrese 2)");
+                    System.out.println("Si desea registrar un Empleado (Ingrese 1) o un  Cliente (Ingrese 2)");
                     int n = sc.nextInt();
                     sc.nextLine(); // Limpia el buffer después de nextInt()
 
@@ -50,7 +51,12 @@ public class Main {
                     }
                     break;
                 case 2: // Registrar un libro
-
+                        System.out.println("Ingrese los datos requeridos para registrar un nuevo libro");
+                        Libro libro = new Libro();
+                        biblioteca.registrarLibro(libro);
+                        System.out.println("*******************************");
+                        System.out.println("Libro registrado correctamente");
+                        System.out.println("*******************************");
                     break;
                 case 3: // Prestamo de libro
 
