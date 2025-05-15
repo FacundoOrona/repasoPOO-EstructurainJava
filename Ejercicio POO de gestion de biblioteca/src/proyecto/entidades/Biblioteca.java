@@ -102,7 +102,6 @@ public class Biblioteca {
 
         Libro l = new Libro();
         l = l.encontrarLibro(idLibro, libros);
-
         if (l == null) {
             System.out.println("❌ Libro no encontrado o no disponible");
             return;
@@ -112,7 +111,7 @@ public class Biblioteca {
 
         Prestamo p = new Prestamo(l, c, new Date());
         prestamos.add(p);
-        System.out.println("✅ Préstamo realizado correctamente del libro" + l.getTitulo() + "al Usuario " + c.getNombre());
+        System.out.println("✅ Préstamo realizado correctamente del libro " + l.getTitulo() + " al Usuario " + c.getNombre());
     }
 
     public void devolverLibro(int idLibro) {

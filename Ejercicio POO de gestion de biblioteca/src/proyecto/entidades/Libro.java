@@ -15,9 +15,10 @@ public class Libro implements Prestable {
 
     public Libro() {
         this.id = generarId();
+        this.disponible = true;
     };
 
-    public Libro(String titulo, String autor, int anioPublicacion, int id) {
+    public Libro(String titulo, String autor, int anioPublicacion) {
         this.titulo = titulo;
         this.autor = autor;
         this.anioPublicacion = anioPublicacion;
@@ -73,11 +74,11 @@ public class Libro implements Prestable {
 
     @Override
     public String toString() {
-        return "Id: " + id + " *" +
-                "Libro: " + titulo + " *" +
-                "autor: " + autor + " *" +
-                "Año de publicacion: " + anioPublicacion + " *" +
-                "Disponibilidad: " + titulo + " *";
+        return "Id: " + id + " * " +
+                "Libro: " + titulo + " * " +
+                "Autor: " + autor + " * " +
+                "Año de publicación: " + anioPublicacion + " * " +
+                "Disponibilidad: " + (disponible ? "Disponible" : "No disponible") + " *";
     }
 
     @Override
@@ -93,17 +94,24 @@ public class Libro implements Prestable {
     public Libro encontrarLibro(int id, List<Libro> libros) {
         Libro l = null;
         for (Libro libro : libros) {
-            if (libro.getId() == id && libro.getDisponible()) {
+            System.out.println("Comparando " + libro.getId() + " con " + id);
+            if (libro.getDisponible() == true) {
+                System.out.println("Libro disponible");
+            } else if (libro.getDisponible() == false) {
+                System.out.println("Libro no disponible");
+            }
+
+            if (libro.getId() == id && libro.getDisponible() == true) {
                 l = libro;
             }
         }
         return l;
     }
 
-    public Libro encontrarLibroPorTitulo(String titulo, List<Libro> libros){
+    public Libro encontrarLibroPorTitulo(String titulo, List<Libro> libros) {
         Libro l = null;
-        for (Libro ll : libros){
-            if(ll.getTitulo().equals(titulo)){
+        for (Libro ll : libros) {
+            if (ll.getTitulo().equals(titulo)) {
                 l = ll;
             }
         }

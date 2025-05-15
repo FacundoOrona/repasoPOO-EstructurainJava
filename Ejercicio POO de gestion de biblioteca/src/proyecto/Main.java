@@ -91,7 +91,7 @@ public class Main {
                     biblioteca.listarLibros();
                     break;
                 case 9: // Salir del programa
-
+                    System.out.println("Usted esta saliendo del programa...");
                     break;
                 default:
                     System.out.println("Opcion invalida, por favor.");
