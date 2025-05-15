@@ -69,10 +69,10 @@ public class Prestamo {
     }
 
     public boolean isActivo() {
-        if (libro.getDisponible() == true) {
-            return true;
-        } else {
+        if (libro.getDisponible()) {
             return false;
+        } else {
+            return true;
         }
     }
 

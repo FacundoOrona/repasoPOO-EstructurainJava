@@ -72,6 +72,9 @@ public class Main {
                     biblioteca.prestarLibro(dni, idLibro);
                     break;
                 case 4: // Mostrar prestamos activos
+                    System.out.println("Listao de prestamos activos");
+                    biblioteca.mostrarPrestamosActivos();
+                    System.out.println("******************************");
                     break;
                 case 5: // devolver libro
 
