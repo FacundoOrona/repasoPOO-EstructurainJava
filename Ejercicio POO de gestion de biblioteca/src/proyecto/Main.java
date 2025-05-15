@@ -51,31 +51,40 @@ public class Main {
                     }
                     break;
                 case 2: // Registrar un libro
-                        System.out.println("Ingrese los datos requeridos para registrar un nuevo libro");
-                        Libro libro = new Libro();
-                        biblioteca.registrarLibro(libro);
-                        System.out.println("*******************************");
-                        System.out.println("Libro registrado correctamente");
-                        System.out.println("*******************************");
+                    System.out.println("Ingrese los datos requeridos para registrar un nuevo libro");
+                    Libro libro = new Libro();
+                    biblioteca.registrarLibro(libro);
+                    System.out.println("*******************************");
+                    System.out.println("Libro registrado correctamente");
+                    System.out.println("*******************************");
                     break;
                 case 3: // Prestamo de libro
+                    System.out.println("Ingrese los datos requeridos para prestar un libro");
 
+                    sc.nextLine(); 
+                    System.out.println("DNI del Cliente");
+                    String dni = sc.nextLine();
+
+                    System.out.println("Ingrese ID del libro que quiere prestar");
+                    int idLibro = sc.nextInt();
+                    sc.nextLine(); 
+
+                    biblioteca.prestarLibro(dni, idLibro);
                     break;
                 case 4: // Mostrar prestamos activos
-
                     break;
                 case 5: // devolver libro
 
                     break;
                 case 6: // Listar empleados
-                        System.out.println("*** Lista de empleados ***");
-                        biblioteca.listarEmpleados();
-                        System.out.println("**************************");
+                    System.out.println("*** Lista de empleados ***");
+                    biblioteca.listarEmpleados();
+                    System.out.println("**************************");
                     break;
                 case 7: // Listar clientes
-                        System.out.println("*** Lista de clientes ***");
-                        biblioteca.listarClientes();
-                        System.out.println("*************************");
+                    System.out.println("*** Lista de clientes ***");
+                    biblioteca.listarClientes();
+                    System.out.println("*************************");
                     break;
                 case 8: // Salir del programa
 
@@ -88,7 +97,7 @@ public class Main {
                     break;
             }
 
-        } while (opc != 6);
+        } while (opc != 9);
         sc.close();
     }
 }

@@ -90,7 +90,7 @@ public class Biblioteca {
 
     public void prestarLibro(String dniCliente, int idLibro) {
         Cliente c = new Cliente();
-        c = c.encontrarCliente(dniCliente, usuarios);
+        c = c.encontrarCliente(dniCliente, clientes);
         if (c == null) {
             System.out.println("❌ Cliente no encontrado o no existente");
             return;
@@ -108,7 +108,7 @@ public class Biblioteca {
 
         Prestamo p = new Prestamo(l, c, new Date());
         prestamos.add(p);
-        System.out.println("✅ Préstamo realizado correctamente");
+        System.out.println("✅ Préstamo realizado correctamente del libro" + l.getTitulo() + "al Usuario " + c.getNombre());
     }
 
     public void devolverLibro(int idLibro) {
@@ -145,6 +145,12 @@ public class Biblioteca {
         } else {
             System.out.println("Libro " + l.getTitulo() + " encontrado");
             return l;
+        }
+    }
+
+    public void listarLibros(){
+        for(Libro libro : libros){
+            System.out.println(libro.toString());
         }
     }
 }
