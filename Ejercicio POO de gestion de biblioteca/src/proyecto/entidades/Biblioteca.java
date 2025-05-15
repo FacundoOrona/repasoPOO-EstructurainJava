@@ -76,9 +76,15 @@ public class Biblioteca {
         return sb.toString();
     }
 
-    public void litarClientes(){
+    public void listarClientes(){
         for(Cliente c : clientes){
             System.out.println(c.toString());
+        }
+    }
+
+    public void listarEmpleados(){
+        for(Empleado e : empleados){
+            System.out.println(e.toString());
         }
     }
 

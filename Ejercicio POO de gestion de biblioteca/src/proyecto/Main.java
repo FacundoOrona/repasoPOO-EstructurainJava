@@ -67,12 +67,14 @@ public class Main {
                 case 5: // devolver libro
 
                     break;
-                case 6: // Salir del programa
-
+                case 6: // Listar empleados
+                        System.out.println("*** Lista de empleados ***");
+                        biblioteca.listarEmpleados();
+                        System.out.println("**************************");
                     break;
                 case 7: // Listar clientes
                         System.out.println("*** Lista de clientes ***");
-                        biblioteca.litarClientes();
+                        biblioteca.listarClientes();
                         System.out.println("*************************");
                     break;
                 case 8: // Salir del programa
@@ -82,7 +84,7 @@ public class Main {
 
                     break;
                 default:
-                    System.out.println("Opcion valida, por favor.");
+                    System.out.println("Opcion invalida, por favor.");
                     break;
             }
 
