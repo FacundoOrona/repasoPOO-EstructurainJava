@@ -70,8 +70,10 @@ public class Main {
                 case 6: // Salir del programa
 
                     break;
-                case 7: // Salir del programa
-
+                case 7: // Listar clientes
+                        System.out.println("*** Lista de clientes ***");
+                        biblioteca.litarClientes();
+                        System.out.println("*************************");
                     break;
                 case 8: // Salir del programa
 

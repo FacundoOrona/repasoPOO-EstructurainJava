@@ -53,12 +53,12 @@ public abstract class Usuario {
 
     @Override
     public String toString() {
-        return "Cliente {" +
+        return "[" +
                 "id=" + id +
                 ", nombre='" + nombre + '\'' +
                 ", dni='" + dni + '\'' +
                 ", email='" + email + '\'' +
-                '}';
+                ']';
     }
 
 }

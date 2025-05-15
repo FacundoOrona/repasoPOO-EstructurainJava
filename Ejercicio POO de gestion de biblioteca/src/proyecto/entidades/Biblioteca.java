@@ -76,6 +76,12 @@ public class Biblioteca {
         return sb.toString();
     }
 
+    public void litarClientes(){
+        for(Cliente c : clientes){
+            System.out.println(c.toString());
+        }
+    }
+
     public void prestarLibro(String dniCliente, int idLibro) {
         Cliente c = new Cliente();
         c = c.encontrarCliente(dniCliente, usuarios);
