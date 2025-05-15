@@ -26,6 +26,7 @@ public class Main {
             System.out.println("7 - Listar Clientes");
             System.out.println("8 - Listar Libros");
             System.out.println("9 - Salir del programa");
+            System.out.println("==============================");
             opc = sc.nextInt();
 
             switch (opc) {
@@ -72,7 +73,7 @@ public class Main {
                     biblioteca.prestarLibro(dni, idLibro);
                     break;
                 case 4: // Mostrar prestamos activos
-                    System.out.println("Listao de prestamos activos");
+                    System.out.println("Lista de prestamos activos");
                     biblioteca.mostrarPrestamosActivos();
                     System.out.println("******************************");
                     break;
