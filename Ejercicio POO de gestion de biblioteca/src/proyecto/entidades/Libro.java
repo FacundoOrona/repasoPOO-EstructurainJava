@@ -11,8 +11,10 @@ public class Libro implements Prestable {
     private int anioPublicacion;
     private boolean disponible;
     private int id;
+    private static int idContador = 0;
 
     public Libro() {
+        this.id = generarId();
     };
 
     public Libro(String titulo, String autor, int anioPublicacion, int id) {
@@ -20,7 +22,11 @@ public class Libro implements Prestable {
         this.autor = autor;
         this.anioPublicacion = anioPublicacion;
         this.disponible = true;
-        this.id = id;
+        this.id = generarId();
+    }
+
+    private static int generarId() {
+        return idContador++;
     }
 
     // setters
@@ -67,11 +73,11 @@ public class Libro implements Prestable {
 
     @Override
     public String toString() {
-        return "Id: " + id + "\n" +
-                "Libro: " + titulo + "\n" +
-                "autor: " + autor + "\n" +
-                "Año de publicacion: " + anioPublicacion + "\n" +
-                "Disponibilidad: " + titulo + "\n";
+        return "Id: " + id + " *" +
+                "Libro: " + titulo + " *" +
+                "autor: " + autor + " *" +
+                "Año de publicacion: " + anioPublicacion + " *" +
+                "Disponibilidad: " + titulo + " *";
     }
 
     @Override

@@ -31,6 +31,7 @@ public class Biblioteca {
         System.out.println("DNI:");
             e.setDni(sc.nextLine());
         empleados.add(e);
+        sc.nextLine();
     }
 
     public void registrarCliente(Cliente c) {
@@ -42,9 +43,11 @@ public class Biblioteca {
         System.out.println("DNI:");
             c.setDni(sc.nextLine());
         clientes.add(c);
+        sc.nextLine();
     }
 
     public void registrarLibro(Libro l) {
+        sc.nextLine();
         System.out.println("Titulo del libro:");
         l.setTitulo(sc.nextLine());
         System.out.println("Autor:");
@@ -52,6 +55,7 @@ public class Biblioteca {
         System.out.println("Ingrese año de publicacion");
         l.setAnioPublicacion(sc.nextInt());
         libros.add(l);
+        sc.nextLine();
     }
 
     @Override

@@ -56,7 +56,7 @@ public class Main {
                     biblioteca.registrarLibro(libro);
                     System.out.println("*******************************");
                     System.out.println("Libro registrado correctamente");
-                    System.out.println("*******************************");
+                    System.out.println("*******************************");  
                     break;
                 case 3: // Prestamo de libro
                     System.out.println("Ingrese los datos requeridos para prestar un libro");
@@ -87,7 +87,8 @@ public class Main {
                     System.out.println("*************************");
                     break;
                 case 8: // Salir del programa
-
+                    System.out.println("Lista de libros");
+                    biblioteca.listarLibros();
                     break;
                 case 9: // Salir del programa
 
