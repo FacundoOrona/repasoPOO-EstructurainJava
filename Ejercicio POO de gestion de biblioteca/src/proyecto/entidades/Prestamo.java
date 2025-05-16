@@ -78,7 +78,6 @@ public class Prestamo {
     public Prestamo encontrarPrestamo (int idLibro, List<Prestamo> prestamos){
         Prestamo p = null;
         for (Prestamo lp : prestamos){
-            System.out.println("Comparando " + lp.getLibro().getId() + " con " + idLibro);
             if(lp.getLibro().getId() == idLibro){
                 p = lp;
             }

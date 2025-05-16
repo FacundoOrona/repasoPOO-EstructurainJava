@@ -6,16 +6,19 @@ import proyecto.entidades.Biblioteca;
 import proyecto.entidades.Cliente;
 import proyecto.entidades.Empleado;
 import proyecto.entidades.Libro;
+import proyecto.negocio.Consola;
 
 public class Main {
     public static void main(String[] args) {
         Biblioteca biblioteca = new Biblioteca();
+        Consola consola = new Consola();
 
-        System.out.println("*BIENVENIDO A LA BIBLIOTECA DE TAPALQUÉ");
         Scanner sc = new Scanner(System.in);
         int opc;
 
         do {
+            consola.limpiarConsola();
+            System.out.println("**** || BIENVENIDO A LA BIBLIOTECA DE TAPALQUÉ || ****");
             System.out.println("Elija una opcion");
             System.out.println("1 - Registrar un nuevo usuario");
             System.out.println("2 - Registrar un nuevo libro");
@@ -31,6 +34,7 @@ public class Main {
 
             switch (opc) {
                 case 1: // Registrar un usuario.
+                    consola.limpiarConsola();
                     System.out.println("Si desea registrar un Empleado (Ingrese 1) o un  Cliente (Ingrese 2)");
                     int n = sc.nextInt();
                     sc.nextLine(); // Limpia el buffer después de nextInt()
@@ -41,66 +45,78 @@ public class Main {
                         System.out.println("*********************************");
                         System.out.println("Empleado registrado correctamente");
                         System.out.println("*********************************");
+                        sc.nextLine();
                     } else if (n == 2) {
                         Cliente cliente = new Cliente();
                         biblioteca.registrarCliente(cliente);
                         System.out.println("*********************************");
                         System.out.println("Cliente registrado correctamente");
                         System.out.println("*********************************");
+                        sc.nextLine();
                     } else {
                         System.out.println("***No se ingresó un valor válido***");
                     }
                     break;
                 case 2: // Registrar un libro
+                    consola.limpiarConsola();
+                    System.out.println("*************************************************************");
                     System.out.println("Ingrese los datos requeridos para registrar un nuevo libro");
+                    System.out.println("*************************************************************");
                     Libro libro = new Libro();
                     biblioteca.registrarLibro(libro);
                     System.out.println("*******************************");
                     System.out.println("Libro registrado correctamente");
-                    System.out.println("*******************************");  
+                    System.out.println("*******************************");
+                    sc.nextLine();
+                    sc.nextLine();
                     break;
                 case 3: // Prestamo de libro
+                    consola.limpiarConsola();
                     System.out.println("Ingrese los datos requeridos para prestar un libro");
 
-                    sc.nextLine(); 
+                    sc.nextLine();
                     System.out.println("DNI del Cliente");
                     String dni = sc.nextLine();
 
                     System.out.println("Ingrese ID del libro que quiere prestar");
                     int idLibro = sc.nextInt();
-                    sc.nextLine(); 
+                    sc.nextLine();
 
                     biblioteca.prestarLibro(dni, idLibro);
                     break;
                 case 4: // Mostrar prestamos activos
+                    consola.limpiarConsola();
                     System.out.println("Lista de prestamos activos");
                     biblioteca.mostrarPrestamosActivos();
                     System.out.println("******************************");
                     break;
                 case 5: // devolver libro
+                    consola.limpiarConsola();
                     System.out.println("Ingrese el ID del libro que quiere devolver");
                     int idDevolver = sc.nextInt();
                     biblioteca.devolverLibro(idDevolver);
                     break;
                 case 6: // Listar empleados
+                    consola.limpiarConsola();
                     System.out.println("*** Lista de empleados ***");
                     biblioteca.listarEmpleados();
-                    System.out.println("**************************");
                     break;
                 case 7: // Listar clientes
+                    consola.limpiarConsola();
                     System.out.println("*** Lista de clientes ***");
                     biblioteca.listarClientes();
-                    System.out.println("*************************");
                     break;
                 case 8: // Salir del programa
-                    System.out.println("Lista de libros");
+                    consola.limpiarConsola();
+                    System.out.println("*** Lista de libros ***");
                     biblioteca.listarLibros();
                     break;
                 case 9: // Salir del programa
-                    System.out.println("Usted esta saliendo del programa...");
+                    consola.limpiarConsola();
+                    System.out.println("|| Usted esta saliendo del programa, gracias por visitarnos!. ||");
                     break;
                 default:
-                    System.out.println("Opcion invalida, por favor.");
+                    System.out.println("Opcion invalida, por favor ingrese una correcta.");
                     break;
             }
 

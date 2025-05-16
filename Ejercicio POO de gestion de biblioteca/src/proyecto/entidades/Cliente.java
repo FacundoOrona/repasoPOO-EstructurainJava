@@ -26,9 +26,8 @@ public class Cliente extends Usuario {
 
     public Cliente encontrarCliente(String dni, List<Cliente> clientes) {
         for (Cliente cliente : clientes) {
-            System.out.println("Comparando: " + cliente.getDni() + " con " + dni);
             if (cliente.getDni().equals(dni)) {
-                System.out.println("✔ Cliente encontrado.");
+                System.out.println("Cliente encontrado.");
                 return cliente;
             }
         }

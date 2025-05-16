@@ -25,25 +25,23 @@ public class Biblioteca {
     public void registrarEmpleado(Empleado e) {
         System.out.println("Ingrese los datos para registrar Empleado");
         System.out.println("Nombre:");
-            e.setNombre(sc.nextLine());
+        e.setNombre(sc.nextLine());
         System.out.println("Email:");
-            e.setEmail(sc.nextLine());
+        e.setEmail(sc.nextLine());
         System.out.println("DNI:");
-            e.setDni(sc.nextLine());
+        e.setDni(sc.nextLine());
         empleados.add(e);
-        sc.nextLine();
     }
 
     public void registrarCliente(Cliente c) {
         System.out.println("Ingrese los datos para registrar Cliente");
         System.out.println("Nombre:");
-            c.setNombre(sc.nextLine());
+        c.setNombre(sc.nextLine());
         System.out.println("Email:");
-            c.setEmail(sc.nextLine());
+        c.setEmail(sc.nextLine());
         System.out.println("DNI:");
-            c.setDni(sc.nextLine());
+        c.setDni(sc.nextLine());
         clientes.add(c);
-        sc.nextLine();
     }
 
     public void registrarLibro(Libro l) {
@@ -55,7 +53,7 @@ public class Biblioteca {
         System.out.println("Ingrese año de publicacion");
         l.setAnioPublicacion(sc.nextInt());
         libros.add(l);
-        sc.nextLine();
+        
     }
 
     @Override
@@ -80,30 +78,44 @@ public class Biblioteca {
         return sb.toString();
     }
 
-    public void listarClientes(){
-        for(Cliente c : clientes){
+    public void listarClientes() {
+        for (Cliente c : clientes) {
             System.out.println(c.toString());
+            System.out.println("------------------------------------------------------------------------------");
         }
+        System.out.println("********************************************************");
+        System.out.println("|| Presione una tecla para continuar ||");
+        sc.nextLine();
     }
 
-    public void listarEmpleados(){
-        for(Empleado e : empleados){
+    public void listarEmpleados() {
+        for (Empleado e : empleados) {
             System.out.println(e.toString());
+            System.out.println("------------------------------------------------------------------------------");
         }
+        System.out.println("********************************************************");
+        System.out.println("|| Presione una tecla para continuar ||");
+        sc.nextLine();
     }
 
     public void prestarLibro(String dniCliente, int idLibro) {
         Cliente c = new Cliente();
         c = c.encontrarCliente(dniCliente, clientes);
         if (c == null) {
-            System.out.println("❌ Cliente no encontrado o no existente");
+            System.out.println("Cliente no encontrado o no existente");
+            System.out.println("********************************************************");
+            System.out.println("|| Presione una tecla para continuar ||");
+            sc.nextLine();
             return;
         }
 
         Libro l = new Libro();
         l = l.encontrarLibro(idLibro, libros);
         if (l == null) {
-            System.out.println("❌ Libro no encontrado o no disponible");
+            System.out.println("Libro no encontrado o no disponible");
+            System.out.println("********************************************************");
+            System.out.println("|| Presione una tecla para continuar ||");
+            sc.nextLine();
             return;
         }
 
@@ -111,7 +123,11 @@ public class Biblioteca {
 
         Prestamo p = new Prestamo(l, c, new Date());
         prestamos.add(p);
-        System.out.println("✅ Préstamo realizado correctamente del libro " + l.getTitulo() + " al Usuario " + c.getNombre());
+        System.out.println(
+                "Préstamo realizado correctamente del libro " + l.getTitulo() + " al Usuario " + c.getNombre());
+        System.out.println("********************************************************");
+        System.out.println("|| Presione una tecla para continuar ||");
+        sc.nextLine();
     }
 
     public void devolverLibro(int idLibro) {
@@ -119,7 +135,10 @@ public class Biblioteca {
         l = l.encontrarLibroPrestado(idLibro, libros);
 
         if (l == null) {
-            System.out.println("❌ Libro no encontrado o aun sigue disponible");
+            System.out.println("Libro no encontrado o aun sigue disponible");
+            System.out.println("********************************************************");
+            System.out.println("|| Presione una tecla para continuar ||");
+            sc.nextLine();
             return;
         }
 
@@ -128,15 +147,22 @@ public class Biblioteca {
         p = p.encontrarPrestamo(idLibro, prestamos);
         p.devolverLibro();
 
-        System.out.println("✅El libro " + l.getTitulo() + " fue devuelto con exito");
+        System.out.println("El libro " + l.getTitulo() + " fue devuelto con exito");
+        System.out.println("********************************************************");
+        System.out.println("|| Presione una tecla para continuar ||");
+        sc.nextLine();
     }
 
     public void mostrarPrestamosActivos() {
         for (Prestamo p : prestamos) {
             if (p.isActivo()) {
                 System.out.println(p.toString());
+                System.out.println("------------------------------------------------------------------------------");
             }
         }
+        System.out.println("********************************************************");
+        System.out.println("|| Presione una tecla para continuar ||");
+        sc.nextLine();
     }
 
     public Libro buscarLibroPorTitulo(String titulo) {
@@ -151,9 +177,13 @@ public class Biblioteca {
         }
     }
 
-    public void listarLibros(){
-        for(Libro libro : libros){
+    public void listarLibros() {
+        for (Libro libro : libros) {
             System.out.println(libro.toString());
+            System.out.println("------------------------------------------------------------------------------");
         }
+        System.out.println("********************************************************");
+        System.out.println("|| Presione una tecla para continuar ||");
+        sc.nextLine();
     }
 }

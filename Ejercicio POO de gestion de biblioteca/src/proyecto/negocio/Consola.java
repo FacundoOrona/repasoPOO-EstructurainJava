@@ -1,6 +1,8 @@
-public class consola {
+package proyecto.negocio;
 
-    public static void limpiarConsola() {
+public class Consola {
+
+    public void limpiarConsola() {
         try {
             if (System.getProperty("os.name").contains("Windows"))
                 new ProcessBuilder("cmd", "/c", "cls").inheritIO().start().waitFor();
