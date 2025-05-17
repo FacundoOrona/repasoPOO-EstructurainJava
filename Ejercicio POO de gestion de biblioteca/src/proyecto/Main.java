@@ -4,14 +4,15 @@ import java.util.Scanner;
 
 import proyecto.entidades.Biblioteca;
 import proyecto.entidades.Cliente;
-import proyecto.entidades.Empleado;
 import proyecto.entidades.Libro;
 import proyecto.negocio.Consola;
+import proyecto.negocio.EmpleadoNegocio;
 
 public class Main {
     public static void main(String[] args) {
         Biblioteca biblioteca = new Biblioteca();
         Consola consola = new Consola();
+        EmpleadoNegocio empleadoNegocio = new EmpleadoNegocio();
 
         Scanner sc = new Scanner(System.in);
         int opc;
@@ -40,8 +41,7 @@ public class Main {
                     sc.nextLine(); // Limpia el buffer después de nextInt()
 
                     if (n == 1) {
-                        Empleado empleado = new Empleado();
-                        biblioteca.registrarEmpleado(empleado);
+                        empleadoNegocio.registrarEmpleado();
                         System.out.println("*********************************");
                         System.out.println("Empleado registrado correctamente");
                         System.out.println("*********************************");
@@ -99,7 +99,7 @@ public class Main {
                 case 6: // Listar empleados
                     consola.limpiarConsola();
                     System.out.println("*** Lista de empleados ***");
-                    biblioteca.listarEmpleados();
+                    empleadoNegocio.listarEmpleados();;
                     break;
                 case 7: // Listar clientes
                     consola.limpiarConsola();

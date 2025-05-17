@@ -22,15 +22,10 @@ public class Biblioteca {
         clientes = new ArrayList<>();
     }
 
-    public void registrarEmpleado(Empleado e) {
-        System.out.println("Ingrese los datos para registrar Empleado");
-        System.out.println("Nombre:");
-        e.setNombre(sc.nextLine());
-        System.out.println("Email:");
-        e.setEmail(sc.nextLine());
-        System.out.println("DNI:");
-        e.setDni(sc.nextLine());
-        empleados.add(e);
+    public void registrarEmpleado(Empleado empleado) {
+        System.out.println("Empleado en capa negocio: " + empleado.toString());
+        empleados.add(empleado);
+
     }
 
     public void registrarCliente(Cliente c) {
