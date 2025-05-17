@@ -23,12 +23,16 @@ public class EmpleadoNegocio {
         System.out.println("DNI:");
         empleado.setDni(sc.nextLine());
 
-        System.out.println("Empleado en capa negocio: " + empleado.toString());
-
         biblioteca.registrarEmpleado(empleado);
+
+        System.out.println("*********************************");
+        System.out.println("Empleado registrado correctamente");
+        System.out.println("*********************************");
+        sc.nextLine();  
     }
 
-    public void listarEmpleados(){
+    public void listarEmpleados() {
+        System.out.println("-*** Lista de empleados ***-");
         biblioteca.listarEmpleados();
     }
 

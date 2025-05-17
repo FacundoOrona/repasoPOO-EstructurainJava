@@ -3,8 +3,8 @@ package proyecto;
 import java.util.Scanner;
 
 import proyecto.entidades.Biblioteca;
-import proyecto.entidades.Cliente;
 import proyecto.entidades.Libro;
+import proyecto.negocio.ClientesNegocio;
 import proyecto.negocio.Consola;
 import proyecto.negocio.EmpleadoNegocio;
 
@@ -13,6 +13,7 @@ public class Main {
         Biblioteca biblioteca = new Biblioteca();
         Consola consola = new Consola();
         EmpleadoNegocio empleadoNegocio = new EmpleadoNegocio();
+        ClientesNegocio clientesNegocio = new ClientesNegocio();
 
         Scanner sc = new Scanner(System.in);
         int opc;
@@ -39,20 +40,10 @@ public class Main {
                     System.out.println("Si desea registrar un Empleado (Ingrese 1) o un  Cliente (Ingrese 2)");
                     int n = sc.nextInt();
                     sc.nextLine(); // Limpia el buffer después de nextInt()
-
                     if (n == 1) {
                         empleadoNegocio.registrarEmpleado();
-                        System.out.println("*********************************");
-                        System.out.println("Empleado registrado correctamente");
-                        System.out.println("*********************************");
-                        sc.nextLine();
                     } else if (n == 2) {
-                        Cliente cliente = new Cliente();
-                        biblioteca.registrarCliente(cliente);
-                        System.out.println("*********************************");
-                        System.out.println("Cliente registrado correctamente");
-                        System.out.println("*********************************");
-                        sc.nextLine();
+                       clientesNegocio.registrarCliente();
                     } else {
                         System.out.println("***No se ingresó un valor válido***");
                     }
@@ -98,13 +89,11 @@ public class Main {
                     break;
                 case 6: // Listar empleados
                     consola.limpiarConsola();
-                    System.out.println("*** Lista de empleados ***");
                     empleadoNegocio.listarEmpleados();;
                     break;
                 case 7: // Listar clientes
                     consola.limpiarConsola();
-                    System.out.println("*** Lista de clientes ***");
-                    biblioteca.listarClientes();
+                    clientesNegocio.listarClientes();
                     break;
                 case 8: // Salir del programa
                     consola.limpiarConsola();
