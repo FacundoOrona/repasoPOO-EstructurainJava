@@ -32,7 +32,7 @@ public class EmpleadoNegocio {
     }
 
     public void listarEmpleados() {
-        System.out.println("-*** Lista de empleados ***-");
+        System.out.println("******************************* Lista de empleados *******************************");
         biblioteca.listarEmpleados();
     }
 

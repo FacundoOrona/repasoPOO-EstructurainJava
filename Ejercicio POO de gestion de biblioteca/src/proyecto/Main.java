@@ -3,17 +3,18 @@ package proyecto;
 import java.util.Scanner;
 
 import proyecto.entidades.Biblioteca;
-import proyecto.entidades.Libro;
-import proyecto.negocio.ClientesNegocio;
-import proyecto.negocio.Consola;
+import proyecto.negocio.ClienteNegocio;
+import proyecto.negocio.ConsolaNegocio;
 import proyecto.negocio.EmpleadoNegocio;
+import proyecto.negocio.LibroNegocio;
 
 public class Main {
     public static void main(String[] args) {
         Biblioteca biblioteca = new Biblioteca();
-        Consola consola = new Consola();
+        ConsolaNegocio consola = new ConsolaNegocio();
         EmpleadoNegocio empleadoNegocio = new EmpleadoNegocio();
-        ClientesNegocio clientesNegocio = new ClientesNegocio();
+        ClienteNegocio clientesNegocio = new ClienteNegocio();
+        LibroNegocio libroNegocio = new LibroNegocio();
 
         Scanner sc = new Scanner(System.in);
         int opc;
@@ -39,7 +40,7 @@ public class Main {
                     consola.limpiarConsola();
                     System.out.println("Si desea registrar un Empleado (Ingrese 1) o un  Cliente (Ingrese 2)");
                     int n = sc.nextInt();
-                    sc.nextLine(); // Limpia el buffer después de nextInt()
+                    sc.nextLine();
                     if (n == 1) {
                         empleadoNegocio.registrarEmpleado();
                     } else if (n == 2) {
@@ -50,16 +51,7 @@ public class Main {
                     break;
                 case 2: // Registrar un libro
                     consola.limpiarConsola();
-                    System.out.println("*************************************************************");
-                    System.out.println("Ingrese los datos requeridos para registrar un nuevo libro");
-                    System.out.println("*************************************************************");
-                    Libro libro = new Libro();
-                    biblioteca.registrarLibro(libro);
-                    System.out.println("*******************************");
-                    System.out.println("Libro registrado correctamente");
-                    System.out.println("*******************************");
-                    sc.nextLine();
-                    sc.nextLine();
+                    libroNegocio.registrarLibros();
                     break;
                 case 3: // Prestamo de libro
                     consola.limpiarConsola();
@@ -95,10 +87,9 @@ public class Main {
                     consola.limpiarConsola();
                     clientesNegocio.listarClientes();
                     break;
-                case 8: // Salir del programa
+                case 8: // Listar libros
                     consola.limpiarConsola();
-                    System.out.println("*** Lista de libros ***");
-                    biblioteca.listarLibros();
+                    libroNegocio.listarLibros();
                     break;
                 case 9: // Salir del programa
                     consola.limpiarConsola();

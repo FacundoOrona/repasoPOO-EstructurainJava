@@ -1,6 +1,6 @@
 package proyecto.negocio;
 
-public class Consola {
+public class ConsolaNegocio {
 
     public void limpiarConsola() {
         try {

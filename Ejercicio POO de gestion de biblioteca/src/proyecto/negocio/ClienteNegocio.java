@@ -5,7 +5,7 @@ import java.util.Scanner;
 import proyecto.entidades.Biblioteca;
 import proyecto.entidades.Cliente;
 
-public class ClientesNegocio {
+public class ClienteNegocio {
 
     Biblioteca biblioteca = new Biblioteca();
     Scanner sc = new Scanner(System.in);
@@ -30,7 +30,7 @@ public class ClientesNegocio {
     }
 
     public void listarClientes() {
-        System.out.println("-*** Lista de clientes ***-");
+        System.out.println("******************************* Lista de clientes *******************************");
         biblioteca.listarClientes();
     }
 }

@@ -30,16 +30,8 @@ public class Biblioteca {
         clientes.add(cliente);
     }
 
-    public void registrarLibro(Libro l) {
-        sc.nextLine();
-        System.out.println("Titulo del libro:");
-        l.setTitulo(sc.nextLine());
-        System.out.println("Autor:");
-        l.setAutor(sc.nextLine());
-        System.out.println("Ingrese año de publicacion");
-        l.setAnioPublicacion(sc.nextInt());
-        libros.add(l);
-        
+    public void registrarLibro(Libro libro) {
+        libros.add(libro);
     }
 
     @Override
@@ -69,7 +61,7 @@ public class Biblioteca {
             System.out.println(c.toString());
             System.out.println("------------------------------------------------------------------------------");
         }
-        System.out.println("********************************************************");
+        System.out.println("****************************************************************************************");
         System.out.println("|| Presione una tecla para continuar ||");
         sc.nextLine();
     }
@@ -79,7 +71,7 @@ public class Biblioteca {
             System.out.println(e.toString());
             System.out.println("------------------------------------------------------------------------------");
         }
-        System.out.println("********************************************************");
+        System.out.println("****************************************************************************************");
         System.out.println("|| Presione una tecla para continuar ||");
         sc.nextLine();
     }
@@ -146,7 +138,7 @@ public class Biblioteca {
                 System.out.println("------------------------------------------------------------------------------");
             }
         }
-        System.out.println("********************************************************");
+        System.out.println("****************************************************************************************");
         System.out.println("|| Presione una tecla para continuar ||");
         sc.nextLine();
     }
@@ -168,7 +160,7 @@ public class Biblioteca {
             System.out.println(libro.toString());
             System.out.println("------------------------------------------------------------------------------");
         }
-        System.out.println("********************************************************");
+        System.out.println("****************************************************************************************");
         System.out.println("|| Presione una tecla para continuar ||");
         sc.nextLine();
     }
