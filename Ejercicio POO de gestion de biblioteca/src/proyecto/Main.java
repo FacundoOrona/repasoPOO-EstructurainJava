@@ -44,6 +44,7 @@ public class Main {
                         System.out.println("1 - Registar nuevo usuario");
                         System.out.println("2 - Mostrar listado de usuarios");
                         System.out.println("3 - Dar de baja un usuario");
+                        System.out.println("4 - Volver al menu principal");
                         System.out.println("==============================");
                         opcMenuUsuario = sc.nextInt();
                         switch (opcMenuUsuario) {
@@ -127,6 +128,7 @@ public class Main {
                 case 3: // Menu de prestamos
                     int opcMenuPrestamos;
                     do {
+                        consola.limpiarConsola();
                         System.out.println("MENU DE PRESTAMOS");
                         System.out.println("1 - Realizar un prestamos");
                         System.out.println("2 - Realizar la devolucion de un prestamo");
@@ -167,7 +169,6 @@ public class Main {
                     System.out.println("Opcion invalida, por favor ingrese una correcta.");
                     break;
             }
-
         } while (opc != 4);
         sc.close();
     }
