@@ -29,13 +29,8 @@ public class Main {
             System.out.println("               Elija una opcion");
             System.out.println("1 - Menu de usuaros");
             System.out.println("2 - Menu de libros");
-            System.out.println("3 - Realizar un prestamo de libro");
-            System.out.println("4 - Mostrar prestamos activo");
-            System.out.println("5 - Devolver un libro");
-            System.out.println("6 - Listar Empleados");
-            System.out.println("7 - Listar Clientes");
-            System.out.println("8 - Listar Libros");
-            System.out.println("9 - Salir del programa");
+            System.out.println("3 - Menu de prestamos");
+            System.out.println("4 - Cerrar programa");
             System.out.println("==============================");
             opc = sc.nextInt();
 
@@ -103,6 +98,7 @@ public class Main {
                         System.out.println("3 - Buscar libro por titulo");
                         System.out.println("4 - Dar de baja un libro");
                         System.out.println("5 - Volver al menu principal");
+                        System.out.println("==============================");
                         opcMenuLibros = sc.nextInt();
 
                         switch (opcMenuLibros) {
@@ -128,29 +124,41 @@ public class Main {
                     } while (opcMenuLibros != 5);
 
                     break;
-                case 3: // Prestamo de libro
-                    consola.limpiarConsola();
-                    prestamoNegocio.realizarPrestamoLibro();
-                    break;
-                case 4: // Mostrar prestamos activos
-                    consola.limpiarConsola();
-                    prestamoNegocio.listarPrestamosActivos();
-                    ;
-                    break;
-                case 5: // devolver libro
-                    consola.limpiarConsola();
-                    prestamoNegocio.devolverLibroPrestado();
-                    break;
-                case 6: // Listar empleados
+                case 3: // Menu de prestamos
+                    int opcMenuPrestamos;
+                    do {
+                        System.out.println("MENU DE PRESTAMOS");
+                        System.out.println("1 - Realizar un prestamos");
+                        System.out.println("2 - Realizar la devolucion de un prestamo");
+                        System.out.println("3 - Listar los prestamos activos");
+                        System.out.println("4 - Volver al menu principal");
+                        System.out.println("==============================");
+                        opcMenuPrestamos = sc.nextInt();
+
+                        switch (opcMenuPrestamos) {
+                            case 1: // Realizar prestamo
+                                consola.limpiarConsola();
+                                prestamoNegocio.realizarPrestamoLibro();
+                                break;
+                            case 2: // Devolver prestamo
+                                consola.limpiarConsola();
+                                prestamoNegocio.devolverLibroPrestado();
+                                break;
+                            case 3: // Listar prestamos
+                                consola.limpiarConsola();
+                                prestamoNegocio.listarPrestamosActivos();
+                                break;
+                            case 4: // Volver al menu principal
+                                System.out.println("Volviendo al menu principal");
+                                break;
+                            default:
+                                break;
+                        }
+
+                    } while (opcMenuPrestamos != 4);
 
                     break;
-                case 7: // Listar clientes
-
-                    break;
-                case 8: // Listar libros
-
-                    break;
-                case 9: // Salir del programa
+                case 4: 
                     consola.limpiarConsola();
                     System.out.println("|| Usted esta saliendo del programa, gracias por visitarnos!. ||");
                     break;
@@ -159,7 +167,7 @@ public class Main {
                     break;
             }
 
-        } while (opc != 9);
+        } while (opc != 4);
         sc.close();
     }
 }
