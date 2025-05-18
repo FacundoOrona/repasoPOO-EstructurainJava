@@ -28,7 +28,7 @@ public class Main {
             System.out.println("  ============= MENU PRINCIPAL ===============");
             System.out.println("               Elija una opcion");
             System.out.println("1 - Menu de usuaros");
-            System.out.println("2 - Registrar un nuevo libro");
+            System.out.println("2 - Menu de libros");
             System.out.println("3 - Realizar un prestamo de libro");
             System.out.println("4 - Mostrar prestamos activo");
             System.out.println("5 - Devolver un libro");
@@ -87,14 +87,46 @@ public class Main {
                                 System.out.println("Volviendo al menu principal");
                                 break;
                             default:
+                                System.out.println("Ingrese una opcion valida por favor");
                                 break;
                         }
                     } while (opcMenuUsuario != 4);
 
                     break;
-                case 2: // Registrar un libro
-                    consola.limpiarConsola();
-                    libroNegocio.registrarLibros();
+                case 2: // Menu de libros
+                    int opcMenuLibros;
+                    do {
+                        consola.limpiarConsola();
+                        System.out.println("        MENU DE LIBROS");
+                        System.out.println("1 - Registrar un nuevo libro");
+                        System.out.println("2 - Mostrar listado de libros");
+                        System.out.println("3 - Buscar libro por titulo");
+                        System.out.println("4 - Dar de baja un libro");
+                        System.out.println("5 - Volver al menu principal");
+                        opcMenuLibros = sc.nextInt();
+
+                        switch (opcMenuLibros) {
+                            case 1: // Registar libro
+                                consola.limpiarConsola();
+                                libroNegocio.registrarLibros();
+                                break;
+                            case 2: // Mostrar lista de libros
+                                consola.limpiarConsola();
+                                libroNegocio.listarLibros();
+                                break;
+                            case 3: // Buscar libro por titulo
+                                break;
+                            case 4: // Dar de baja un libro
+                                break;
+                            case 5:
+                                System.out.println("Volviendo al menu principal...");
+                                break;
+                            default:
+                                System.out.println("Ingrese una opcion valida por favor");
+                                break;
+                        }
+                    } while (opcMenuLibros != 5);
+
                     break;
                 case 3: // Prestamo de libro
                     consola.limpiarConsola();
@@ -116,8 +148,7 @@ public class Main {
 
                     break;
                 case 8: // Listar libros
-                    consola.limpiarConsola();
-                    libroNegocio.listarLibros();
+
                     break;
                 case 9: // Salir del programa
                     consola.limpiarConsola();
