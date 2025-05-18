@@ -91,15 +91,7 @@ public class Libro implements Prestable {
         disponible = true;
     }
 
-    public Libro encontrarLibro(int id, List<Libro> libros) {
-        Libro l = null;
-        for (Libro libro : libros) {
-            if (libro.getId() == id && libro.getDisponible() == true) {
-                l = libro;
-            }
-        }
-        return l;
-    }
+    
 
     public Libro encontrarLibroPrestado(int id, List<Libro> libros) {
         Libro l = null;

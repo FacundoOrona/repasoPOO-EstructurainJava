@@ -12,9 +12,9 @@ public class Main {
     public static void main(String[] args) {
         Biblioteca biblioteca = new Biblioteca();
         ConsolaNegocio consola = new ConsolaNegocio();
-        EmpleadoNegocio empleadoNegocio = new EmpleadoNegocio();
-        ClienteNegocio clientesNegocio = new ClienteNegocio();
-        LibroNegocio libroNegocio = new LibroNegocio();
+        LibroNegocio libroNegocio = new LibroNegocio(biblioteca);
+        ClienteNegocio clienteNegocio = new ClienteNegocio(biblioteca);
+        EmpleadoNegocio empleadoNegocio = new EmpleadoNegocio(biblioteca);
 
         Scanner sc = new Scanner(System.in);
         int opc;
@@ -44,7 +44,7 @@ public class Main {
                     if (n == 1) {
                         empleadoNegocio.registrarEmpleado();
                     } else if (n == 2) {
-                       clientesNegocio.registrarCliente();
+                        clienteNegocio.registrarCliente();
                     } else {
                         System.out.println("***No se ingresó un valor válido***");
                     }
@@ -55,17 +55,7 @@ public class Main {
                     break;
                 case 3: // Prestamo de libro
                     consola.limpiarConsola();
-                    System.out.println("Ingrese los datos requeridos para prestar un libro");
-
-                    sc.nextLine();
-                    System.out.println("DNI del Cliente");
-                    String dni = sc.nextLine();
-
-                    System.out.println("Ingrese ID del libro que quiere prestar");
-                    int idLibro = sc.nextInt();
-                    sc.nextLine();
-
-                    biblioteca.prestarLibro(dni, idLibro);
+                    libroNegocio.realizarPrestamoLibro();
                     break;
                 case 4: // Mostrar prestamos activos
                     consola.limpiarConsola();
@@ -81,11 +71,12 @@ public class Main {
                     break;
                 case 6: // Listar empleados
                     consola.limpiarConsola();
-                    empleadoNegocio.listarEmpleados();;
+                    empleadoNegocio.listarEmpleados();
+                    ;
                     break;
                 case 7: // Listar clientes
                     consola.limpiarConsola();
-                    clientesNegocio.listarClientes();
+                    clienteNegocio.listarClientes();
                     break;
                 case 8: // Listar libros
                     consola.limpiarConsola();

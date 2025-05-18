@@ -76,36 +76,36 @@ public class Biblioteca {
         sc.nextLine();
     }
 
-    public void prestarLibro(String dniCliente, int idLibro) {
-        Cliente c = new Cliente();
-        c = c.encontrarCliente(dniCliente, clientes);
-        if (c == null) {
-            System.out.println("Cliente no encontrado o no existente");
-            System.out.println("********************************************************");
-            System.out.println("|| Presione una tecla para continuar ||");
-            sc.nextLine();
-            return;
-        }
-
-        Libro l = new Libro();
-        l = l.encontrarLibro(idLibro, libros);
-        if (l == null) {
-            System.out.println("Libro no encontrado o no disponible");
-            System.out.println("********************************************************");
-            System.out.println("|| Presione una tecla para continuar ||");
-            sc.nextLine();
-            return;
-        }
-
-        l.prestar();
-
-        Prestamo p = new Prestamo(l, c, new Date());
+    public void prestarLibro(Cliente cliente, Libro libro) {
+        Prestamo p = new Prestamo(libro, cliente, new Date());
         prestamos.add(p);
+        
         System.out.println(
-                "Préstamo realizado correctamente del libro " + l.getTitulo() + " al Usuario " + c.getNombre());
+                "Préstamo realizado correctamente del libro " + libro.getTitulo() + " al Usuario " + cliente.getNombre());
         System.out.println("********************************************************");
         System.out.println("|| Presione una tecla para continuar ||");
         sc.nextLine();
+    }
+
+    public Cliente encontrarCliente(String dni) {
+        for (Cliente cliente : clientes) {
+            if (cliente.getDni().equals(dni)) {
+                System.out.println("Cliente encontrado.");
+                return cliente;
+            }
+        }
+        System.out.println("Cliente no encontrado.");
+        return null;
+    }
+
+    public Libro encontrarLibro(int id) {
+        for (Libro libro : libros) {
+            if (libro.getId() == id && libro.getDisponible() == true) {
+                System.out.println("Libro encontrado");
+                return libro;
+            }
+        }
+        return null;
     }
 
     public void devolverLibro(int idLibro) {
@@ -164,4 +164,6 @@ public class Biblioteca {
         System.out.println("|| Presione una tecla para continuar ||");
         sc.nextLine();
     }
+
+    
 }

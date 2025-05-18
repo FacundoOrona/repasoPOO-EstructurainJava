@@ -7,7 +7,12 @@ import proyecto.entidades.Cliente;
 
 public class ClienteNegocio {
 
-    Biblioteca biblioteca = new Biblioteca();
+    private Biblioteca biblioteca;
+
+    public ClienteNegocio(Biblioteca biblioteca){
+        this.biblioteca = biblioteca;
+    }
+
     Scanner sc = new Scanner(System.in);
 
     public void registrarCliente() {

@@ -24,15 +24,6 @@ public class Cliente extends Usuario {
         return prestamosActivos;
     }
 
-    public Cliente encontrarCliente(String dni, List<Cliente> clientes) {
-        for (Cliente cliente : clientes) {
-            if (cliente.getDni().equals(dni)) {
-                System.out.println("Cliente encontrado.");
-                return cliente;
-            }
-        }
-        System.out.println("❌ Cliente no encontrado.");
-        return null;
-    }
+    
 
 }

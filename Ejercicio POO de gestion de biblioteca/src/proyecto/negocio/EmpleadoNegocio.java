@@ -8,8 +8,13 @@ import proyecto.entidades.Biblioteca;
 
 public class EmpleadoNegocio {
 
+    private Biblioteca biblioteca;
+
+    public EmpleadoNegocio(Biblioteca biblioteca){
+        this.biblioteca = biblioteca;
+    }
+
     Scanner sc = new Scanner(System.in);
-    Biblioteca biblioteca = new Biblioteca();
 
     public void registrarEmpleado() {
 
