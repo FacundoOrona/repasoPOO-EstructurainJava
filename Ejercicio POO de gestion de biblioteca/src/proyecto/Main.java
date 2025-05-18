@@ -152,13 +152,14 @@ public class Main {
                                 System.out.println("Volviendo al menu principal");
                                 break;
                             default:
+                                System.out.println("Ingrese una opcion valida por favor");
                                 break;
                         }
 
                     } while (opcMenuPrestamos != 4);
 
                     break;
-                case 4: 
+                case 4:
                     consola.limpiarConsola();
                     System.out.println("|| Usted esta saliendo del programa, gracias por visitarnos!. ||");
                     break;
