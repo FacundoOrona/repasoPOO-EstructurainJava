@@ -7,10 +7,10 @@ import proyecto.entidades.Cliente;
 import proyecto.entidades.Libro;
 
 public class PrestamoNegocio {
-    
-    private  Biblioteca biblioteca;
 
-    public PrestamoNegocio(Biblioteca biblioteca){
+    private Biblioteca biblioteca;
+
+    public PrestamoNegocio(Biblioteca biblioteca) {
         this.biblioteca = biblioteca;
     }
 
@@ -52,5 +52,11 @@ public class PrestamoNegocio {
         libro.prestar();
 
         biblioteca.prestarLibro(cliente, libro);
+    }
+
+    public void listarPrestamosActivos() {
+        System.out.println("Lista de prestamos activos");
+        biblioteca.mostrarPrestamosActivos();
+        System.out.println("******************************");
     }
 }

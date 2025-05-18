@@ -61,9 +61,7 @@ public class Main {
                     break;
                 case 4: // Mostrar prestamos activos
                     consola.limpiarConsola();
-                    System.out.println("Lista de prestamos activos");
-                    biblioteca.mostrarPrestamosActivos();
-                    System.out.println("******************************");
+                    prestamoNegocio.listarPrestamosActivos();;
                     break;
                 case 5: // devolver libro
                     consola.limpiarConsola();
