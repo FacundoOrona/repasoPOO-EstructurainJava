@@ -65,14 +65,11 @@ public class Main {
                     break;
                 case 5: // devolver libro
                     consola.limpiarConsola();
-                    System.out.println("Ingrese el ID del libro que quiere devolver");
-                    int idDevolver = sc.nextInt();
-                    biblioteca.devolverLibro(idDevolver);
+                    prestamoNegocio.devolverLibroPrestado();
                     break;
                 case 6: // Listar empleados
                     consola.limpiarConsola();
                     empleadoNegocio.listarEmpleados();
-                    ;
                     break;
                 case 7: // Listar clientes
                     consola.limpiarConsola();

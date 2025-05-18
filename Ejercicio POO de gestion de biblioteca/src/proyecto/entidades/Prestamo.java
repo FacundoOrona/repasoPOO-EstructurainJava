@@ -1,7 +1,6 @@
 package proyecto.entidades;
 
 import java.util.Date;
-import java.util.List;
 
 public class Prestamo {
 
@@ -75,14 +74,6 @@ public class Prestamo {
         }
     }
 
-    public Prestamo encontrarPrestamo (int idLibro, List<Prestamo> prestamos){
-        Prestamo p = null;
-        for (Prestamo lp : prestamos){
-            if(lp.getLibro().getId() == idLibro){
-                p = lp;
-            }
-        }
-        return p;
-    }
+    
 
 }

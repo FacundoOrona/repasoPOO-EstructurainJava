@@ -108,27 +108,29 @@ public class Biblioteca {
         return null;
     }
 
-    public void devolverLibro(int idLibro) {
-        Libro l = new Libro();
-        l = l.encontrarLibroPrestado(idLibro, libros);
-
-        if (l == null) {
-            System.out.println("Libro no encontrado o aun sigue disponible");
-            System.out.println("********************************************************");
-            System.out.println("|| Presione una tecla para continuar ||");
-            sc.nextLine();
-            return;
+    public Libro encontrarLibroPrestado(int id) {
+        for (Libro libro : libros) {
+            if (libro.getId() == id && libro.getDisponible() == false) {
+                System.out.println("Libro prestado encontrado" + libro.toString());
+                return libro;
+            }
         }
+        return null;
+    }
 
-        // encontrar prestamo
-        Prestamo p = new Prestamo();
-        p = p.encontrarPrestamo(idLibro, prestamos);
-        p.devolverLibro();
+    public Prestamo encontrarPrestamo (int idLibro){
+        for (Prestamo prestamo : prestamos){
+            if(prestamo.getLibro().getId() == idLibro){
+                System.out.println("Prestamo existente \n " + prestamo.toString());
+                return prestamo;
+            }
+        }
+        return null;
+    }
 
-        System.out.println("El libro " + l.getTitulo() + " fue devuelto con exito");
-        System.out.println("********************************************************");
-        System.out.println("|| Presione una tecla para continuar ||");
-        sc.nextLine();
+    public void devolverLibro(int idLibro) {
+
+        
     }
 
     public void mostrarPrestamosActivos() {
