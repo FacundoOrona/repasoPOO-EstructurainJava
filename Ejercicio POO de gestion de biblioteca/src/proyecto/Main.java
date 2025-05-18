@@ -7,6 +7,7 @@ import proyecto.negocio.ClienteNegocio;
 import proyecto.negocio.ConsolaNegocio;
 import proyecto.negocio.EmpleadoNegocio;
 import proyecto.negocio.LibroNegocio;
+import proyecto.negocio.PrestamoNegocio;
 
 public class Main {
     public static void main(String[] args) {
@@ -15,6 +16,7 @@ public class Main {
         LibroNegocio libroNegocio = new LibroNegocio(biblioteca);
         ClienteNegocio clienteNegocio = new ClienteNegocio(biblioteca);
         EmpleadoNegocio empleadoNegocio = new EmpleadoNegocio(biblioteca);
+        PrestamoNegocio prestamoNegocio = new PrestamoNegocio(biblioteca);
 
         Scanner sc = new Scanner(System.in);
         int opc;
@@ -55,7 +57,7 @@ public class Main {
                     break;
                 case 3: // Prestamo de libro
                     consola.limpiarConsola();
-                    libroNegocio.realizarPrestamoLibro();
+                    prestamoNegocio.realizarPrestamoLibro();
                     break;
                 case 4: // Mostrar prestamos activos
                     consola.limpiarConsola();

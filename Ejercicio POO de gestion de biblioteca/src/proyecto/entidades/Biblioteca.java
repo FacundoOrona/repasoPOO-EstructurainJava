@@ -90,7 +90,7 @@ public class Biblioteca {
     public Cliente encontrarCliente(String dni) {
         for (Cliente cliente : clientes) {
             if (cliente.getDni().equals(dni)) {
-                System.out.println("Cliente encontrado.");
+                System.out.println("Cliente encontrado: " + cliente.toString());
                 return cliente;
             }
         }
@@ -101,7 +101,7 @@ public class Biblioteca {
     public Libro encontrarLibro(int id) {
         for (Libro libro : libros) {
             if (libro.getId() == id && libro.getDisponible() == true) {
-                System.out.println("Libro encontrado");
+                System.out.println("Libro encontrado: " + libro.toString());
                 return libro;
             }
         }
