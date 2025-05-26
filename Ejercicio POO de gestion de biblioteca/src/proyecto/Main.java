@@ -77,8 +77,8 @@ public class Main {
                                 }
                                 break;
                             case 3: // Dar de baja Usuario
+                                empleadoNegocio.eliminarEmpleado();
                                 break;
-
                             case 4: // Volver al menu principal
                                 System.out.println("Volviendo al menu principal");
                                 break;
