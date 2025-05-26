@@ -124,8 +124,11 @@ public class Main {
                                 libroNegocio.listarLibros();
                                 break;
                             case 3: // Buscar libro por titulo
+                                consola.limpiarConsola();
+                                libroNegocio.buscarLibroPorTitulo();
                                 break;
                             case 4: // Dar de baja un libro
+                                consola.limpiarConsola();  
                                 break;
                             case 5:
                                 System.out.println("Volviendo al menu principal...");
