@@ -77,7 +77,19 @@ public class Main {
                                 }
                                 break;
                             case 3: // Dar de baja Usuario
-                                empleadoNegocio.eliminarEmpleado();
+                                consola.limpiarConsola();
+                                System.out.println(
+                                        "Si desea eliminar un Empleado (Ingrese 1) o un Cliente (Ingrese 2)");
+                                int n2 = sc.nextInt();
+                                if (n2 == 1) {
+                                    consola.limpiarConsola();
+                                    empleadoNegocio.eliminarEmpleado();
+                                } else if (n2 == 2) {
+                                    consola.limpiarConsola();
+                                    clienteNegocio.eliminarCliente();
+                                } else {
+                                    System.out.println("***No se ingresó un valor válido***");
+                                }
                                 break;
                             case 4: // Volver al menu principal
                                 System.out.println("Volviendo al menu principal");
