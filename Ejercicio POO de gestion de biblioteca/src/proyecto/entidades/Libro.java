@@ -93,13 +93,12 @@ public class Libro implements Prestable {
 
 
     public Libro encontrarLibroPorTitulo(String titulo, List<Libro> libros) {
-        Libro l = null;
-        for (Libro ll : libros) {
-            if (ll.getTitulo().equals(titulo)) {
-                l = ll;
+        for (Libro libro : libros) {
+            if (libro.getTitulo().equals(titulo)) {
+                return libro;
             }
         }
-        return l;
+        return null;
     }
 
 }
