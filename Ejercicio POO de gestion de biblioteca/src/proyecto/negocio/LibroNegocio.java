@@ -66,6 +66,7 @@ public class LibroNegocio {
         } else {
             System.out.println("No se encontró un libro con ese ID.");
         }
+        sc.nextLine();
     }
 
     
