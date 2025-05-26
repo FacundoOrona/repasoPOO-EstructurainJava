@@ -54,6 +54,16 @@ public class Biblioteca {
         return false;
     }
 
+    public boolean eliminarLibro(int id) {
+        for (Libro libro : libros) {
+            if (libro.getId() == id) {
+                libros.remove(libro);
+                return true;
+            }
+        }
+        return false;
+    }
+
     @Override
     public String toString() {
         StringBuilder sb = new StringBuilder();
