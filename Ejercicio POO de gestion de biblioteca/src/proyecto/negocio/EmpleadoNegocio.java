@@ -41,4 +41,18 @@ public class EmpleadoNegocio {
         biblioteca.listarEmpleados();
     }
 
+    public void eliminarEmpleado () {
+        System.out.println("Ingrese el DNI del empleado que desea eliminar:");
+        String dni = sc.nextLine();
+        
+        if (biblioteca.eliminarEmpleado(dni)) {
+            System.out.println("*********************************");
+            System.out.println("Empleado eliminado correctamente");
+            System.out.println("*********************************");
+        } else {
+            System.out.println("No se encontró un empleado con ese DNI.");
+        }
+        
+        sc.nextLine();  // Espera a que el usuario presione Enter
+    }
 }
