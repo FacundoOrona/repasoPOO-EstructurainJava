@@ -38,6 +38,7 @@ public class Biblioteca {
         for (Empleado empleado : empleados) {
             if (empleado.getDni().equals(dni)) {
                 empleados.remove(empleado);
+                System.out.println("Empleado "+ empleado.getNombre() +" eliminado correctamente.");
                 return true;
             }
         }
@@ -48,6 +49,7 @@ public class Biblioteca {
         for (Cliente cliente : clientes) {
             if (cliente.getDni().equals(dni)) {
                 clientes.remove(cliente);
+                System.out.println("Cliente "+ cliente.getNombre() +" eliminado correctamente.");
                 return true;
             }
         }
