@@ -166,14 +166,12 @@ public class Biblioteca {
     }
 
     public Libro buscarLibroPorTitulo(String titulo) {
-        Libro l = new Libro();
-        l = l.encontrarLibroPorTitulo(titulo, libros);
-        if (l == null) {
-            System.out.println("Libro no encontrado");
+        Libro libro = new Libro();
+        libro = libro.encontrarLibroPorTitulo(titulo, libros);
+        if (libro == null) {
             return null;
         } else {
-            System.out.println("Libro " + l.getTitulo() + " encontrado");
-            return l;
+            return libro;
         }
     }
 
