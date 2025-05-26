@@ -42,6 +42,19 @@ public class LibroNegocio {
         biblioteca.listarLibros();
     }
 
+    public void buscarLibroPorTitulo() {
+        System.out.println("Ingrese el titulo del libro que desea buscar:");
+        String titulo = sc.nextLine();
+        
+        Libro libro = biblioteca.buscarLibroPorTitulo(titulo);
+        if (libro != null) {
+            System.out.println("Libro encontrado: " + libro);
+        } else {
+            System.out.println("No se encontró un libro con ese título.");
+        }
+        sc.nextLine();
+    }
+
     
 
 }
