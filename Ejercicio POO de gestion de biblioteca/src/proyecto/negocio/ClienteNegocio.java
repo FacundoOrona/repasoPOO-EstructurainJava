@@ -38,4 +38,19 @@ public class ClienteNegocio {
         System.out.println("******************************* Lista de clientes *******************************");
         biblioteca.listarClientes();
     }
+
+    public void eliminarCliente() {
+        System.out.println("Ingrese el DNI del cliente a eliminar:");
+        String dni = sc.nextLine();
+        boolean eliminado = biblioteca.eliminarCliente(dni);
+        
+        if (eliminado) {
+            System.out.println("*********************************");
+            System.out.println("Cliente eliminado correctamente");
+            System.out.println("*********************************");
+        } else {
+            System.out.println("No se encontró un cliente con ese DNI.");
+        }
+        sc.nextLine();
+    }
 }
