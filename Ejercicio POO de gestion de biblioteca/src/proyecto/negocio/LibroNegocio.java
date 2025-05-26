@@ -45,7 +45,7 @@ public class LibroNegocio {
     public void buscarLibroPorTitulo() {
         System.out.println("Ingrese el titulo del libro que desea buscar:");
         String titulo = sc.nextLine();
-        
+
         Libro libro = biblioteca.buscarLibroPorTitulo(titulo);
         if (libro != null) {
             System.out.println("Libro encontrado: " + libro);
@@ -53,6 +53,19 @@ public class LibroNegocio {
             System.out.println("No se encontró un libro con ese título.");
         }
         sc.nextLine();
+    }
+
+    public void eliminarLibro() {
+        System.out.println("Ingrese el ID del libro que desea eliminar:");
+        int id = sc.nextInt();
+        sc.nextLine();
+
+        boolean eliminado = biblioteca.eliminarLibro(id);
+        if (eliminado) {
+            System.out.println("Libro eliminado correctamente.");
+        } else {
+            System.out.println("No se encontró un libro con ese ID.");
+        }
     }
 
     
