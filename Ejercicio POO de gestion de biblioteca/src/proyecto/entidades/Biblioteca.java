@@ -43,7 +43,17 @@ public class Biblioteca {
         }
         return false;
     }
-    
+
+    public boolean eliminarCliente(String dni) {
+        for (Cliente cliente : clientes) {
+            if (cliente.getDni().equals(dni)) {
+                clientes.remove(cliente);
+                return true;
+            }
+        }
+        return false;
+    }
+
     @Override
     public String toString() {
         StringBuilder sb = new StringBuilder();
