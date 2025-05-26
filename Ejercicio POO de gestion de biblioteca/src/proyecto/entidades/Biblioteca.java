@@ -34,6 +34,16 @@ public class Biblioteca {
         libros.add(libro);
     }
 
+    public boolean eliminarEmpleado(String dni) {
+        for (Empleado empleado : empleados) {
+            if (empleado.getDni().equals(dni)) {
+                empleados.remove(empleado);
+                return true;
+            }
+        }
+        return false;
+    }
+    
     @Override
     public String toString() {
         StringBuilder sb = new StringBuilder();
