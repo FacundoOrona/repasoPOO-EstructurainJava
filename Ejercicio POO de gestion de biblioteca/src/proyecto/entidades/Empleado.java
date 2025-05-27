@@ -43,4 +43,9 @@ public class Empleado extends Usuario {
                     libro.setDisponible(true);
     }
 
+    public static Empleado fromString(String linea) {
+        String[] partes = linea.split(",");
+        return new Empleado(partes[0], partes[1], partes[2]);
+    }
+
 }
