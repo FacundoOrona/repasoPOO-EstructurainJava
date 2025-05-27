@@ -5,6 +5,7 @@ import java.util.Date;
 import java.util.List;
 import java.util.Scanner;
 import proyecto.daoArchivos.ArchivoEmpleado;
+import proyecto.daoArchivos.ArchivoCliente;
 
 public class Biblioteca {
     private List<Libro> libros;
@@ -19,17 +20,18 @@ public class Biblioteca {
         libros = new ArrayList<>();
         usuarios = new ArrayList<>();
         prestamos = new ArrayList<>();
-        empleados = ArchivoEmpleado.cargarEmpleados(); // Cargar desde archivo
-        clientes = new ArrayList<>();
+        empleados = ArchivoEmpleado.cargarEmpleados();
+        clientes = ArchivoCliente.cargarClientes(); 
     }
 
     public void registrarEmpleado(Empleado empleado) {
         empleados.add(empleado);
-        ArchivoEmpleado.guardarEmpleado(empleado); // Guardar en archivo
+        ArchivoEmpleado.guardarEmpleado(empleado); 
     }
 
     public void registrarCliente(Cliente cliente) {
         clientes.add(cliente);
+        ArchivoCliente.guardarCliente(cliente); 
     }
 
     public void registrarLibro(Libro libro) {
