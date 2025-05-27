@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 import java.util.Scanner;
+import proyecto.daoArchivos.ArchivoEmpleado;
 
 public class Biblioteca {
     private List<Libro> libros;
@@ -18,12 +19,13 @@ public class Biblioteca {
         libros = new ArrayList<>();
         usuarios = new ArrayList<>();
         prestamos = new ArrayList<>();
-        empleados = new ArrayList<>();
+        empleados = ArchivoEmpleado.cargarEmpleados(); // Cargar desde archivo
         clientes = new ArrayList<>();
     }
 
     public void registrarEmpleado(Empleado empleado) {
         empleados.add(empleado);
+        ArchivoEmpleado.guardarEmpleado(empleado); // Guardar en archivo
     }
 
     public void registrarCliente(Cliente cliente) {
@@ -38,7 +40,7 @@ public class Biblioteca {
         for (Empleado empleado : empleados) {
             if (empleado.getDni().equals(dni)) {
                 empleados.remove(empleado);
-                System.out.println("Empleado "+ empleado.getNombre() +" eliminado correctamente.");
+                System.out.println("Empleado " + empleado.getNombre() + " eliminado correctamente.");
                 return true;
             }
         }
@@ -49,7 +51,7 @@ public class Biblioteca {
         for (Cliente cliente : clientes) {
             if (cliente.getDni().equals(dni)) {
                 clientes.remove(cliente);
-                System.out.println("Cliente "+ cliente.getNombre() +" eliminado correctamente.");
+                System.out.println("Cliente " + cliente.getNombre() + " eliminado correctamente.");
                 return true;
             }
         }
@@ -111,9 +113,10 @@ public class Biblioteca {
     public void prestarLibro(Cliente cliente, Libro libro) {
         Prestamo p = new Prestamo(libro, cliente, new Date());
         prestamos.add(p);
-        
+
         System.out.println(
-                "Préstamo realizado correctamente del libro " + libro.getTitulo() + " al Usuario " + cliente.getNombre());
+                "Préstamo realizado correctamente del libro " + libro.getTitulo() + " al Usuario "
+                        + cliente.getNombre());
         System.out.println("********************************************************");
         System.out.println("|| Presione una tecla para continuar ||");
         sc.nextLine();
@@ -150,9 +153,9 @@ public class Biblioteca {
         return null;
     }
 
-    public Prestamo encontrarPrestamo (int idLibro){
-        for (Prestamo prestamo : prestamos){
-            if(prestamo.getLibro().getId() == idLibro){
+    public Prestamo encontrarPrestamo(int idLibro) {
+        for (Prestamo prestamo : prestamos) {
+            if (prestamo.getLibro().getId() == idLibro) {
                 System.out.println("Prestamo existente \n " + prestamo.toString());
                 return prestamo;
             }
@@ -162,7 +165,6 @@ public class Biblioteca {
 
     public void devolverLibro(int idLibro) {
 
-        
     }
 
     public void mostrarPrestamosActivos() {
@@ -197,5 +199,4 @@ public class Biblioteca {
         sc.nextLine();
     }
 
-    
 }
