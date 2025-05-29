@@ -10,7 +10,7 @@ public class EmpleadoNegocio {
 
     private Biblioteca biblioteca;
 
-    public EmpleadoNegocio(Biblioteca biblioteca){
+    public EmpleadoNegocio(Biblioteca biblioteca) {
         this.biblioteca = biblioteca;
     }
 
@@ -33,7 +33,7 @@ public class EmpleadoNegocio {
         System.out.println("*********************************");
         System.out.println("Empleado registrado correctamente");
         System.out.println("*********************************");
-        sc.nextLine();  
+        sc.nextLine();
     }
 
     public void listarEmpleados() {
@@ -41,10 +41,10 @@ public class EmpleadoNegocio {
         biblioteca.listarEmpleados();
     }
 
-    public void eliminarEmpleado () {
+    public void eliminarEmpleado() {
         System.out.println("Ingrese el DNI del empleado que desea eliminar:");
         String dni = sc.nextLine();
-        
+
         if (biblioteca.eliminarEmpleado(dni)) {
             System.out.println("*********************************");
             System.out.println("Empleado eliminado correctamente");
@@ -52,7 +52,36 @@ public class EmpleadoNegocio {
         } else {
             System.out.println("No se encontró un empleado con ese DNI.");
         }
-        
-        sc.nextLine();  // Espera a que el usuario presione Enter
+
+        sc.nextLine(); // Espera a que el usuario presione Enter
     }
+
+    public void editarEmpleado() {
+        System.out.println("Ingrese el DNI del empleado que desea editar:");
+        String dni = sc.nextLine();
+
+        Empleado empleado = biblioteca.buscarEmpleadoPorDni(dni);
+
+        if (empleado != null) {
+            System.out.println("Empleado encontrado: ");
+            System.out.println(empleado);
+
+            System.out.println("Nuevo nombre:");
+            empleado.setNombre(sc.nextLine());
+
+            System.out.println("Nuevo email:");
+            empleado.setEmail(sc.nextLine());
+
+            biblioteca.actualizarArchivoEmpleados(); // persistir cambios
+
+            System.out.println("*********************************");
+            System.out.println("Empleado editado correctamente");
+            System.out.println("*********************************");
+        } else {
+            System.out.println("No se encontró un empleado con ese DNI.");
+        }
+
+        sc.nextLine();
+    }
+
 }
