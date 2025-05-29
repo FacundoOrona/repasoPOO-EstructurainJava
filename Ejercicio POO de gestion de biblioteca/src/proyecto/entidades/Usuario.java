@@ -53,7 +53,7 @@ public abstract class Usuario {
 
     @Override
     public String toString() {
-        return getNombre() + " | " + getDni() + " | " + getEmail();
+        return getNombre() + " - " + getDni() + " - " + getEmail() + " | ";
     }
 
 }

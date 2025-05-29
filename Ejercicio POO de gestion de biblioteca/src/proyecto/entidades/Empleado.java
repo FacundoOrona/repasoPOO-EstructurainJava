@@ -31,27 +31,26 @@ public class Empleado extends Usuario {
 
     public void registrarLibro(Libro libro) {
         System.out.println("Ingrese los datos para registrar el libro");
-            System.out.println("Ingrese titulo:");
-                String titulo = sc.nextLine();
-                    libro.setTitulo(titulo);
-            System.out.println("Ingrese autor:");
-                String autor = sc.nextLine();
-                    libro.setAutor(autor);
-            System.out.println("Ingrese año de publicacion");
-                int anio = sc.nextInt();
-                    libro.setAnioPublicacion(anio);
-                    libro.setDisponible(true);
+        System.out.println("Ingrese titulo:");
+        String titulo = sc.nextLine();
+        libro.setTitulo(titulo);
+        System.out.println("Ingrese autor:");
+        String autor = sc.nextLine();
+        libro.setAutor(autor);
+        System.out.println("Ingrese año de publicacion");
+        int anio = sc.nextInt();
+        libro.setAnioPublicacion(anio);
+        libro.setDisponible(true);
     }
 
     public static Empleado fromString(String linea) {
-    String[] partes = linea.split(" | ");
-    if (partes.length >= 3) {
-        return new Empleado(partes[0], partes[1], partes[2]);
-    } else {
-        System.out.println("Línea inválida: " + linea);
-        return new Empleado(); 
+        String[] partes = linea.split(" - ");
+        if (partes.length >= 3) {
+            return new Empleado(partes[0], partes[1], partes[2]);
+        } else {
+            System.out.println("Línea inválida: " + linea);
+            return new Empleado();
+        }
     }
-}
-
 
 }

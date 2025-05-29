@@ -31,7 +31,7 @@ public class Cliente extends Usuario {
     }
 
     public static Cliente fromString(String linea) {
-        String[] partes = linea.split(" | ");
+        String[] partes = linea.split(" - ");
         if (partes.length >= 3) {
             return new Cliente(partes[0], partes[1], partes[2]);
         } else {
