@@ -91,14 +91,27 @@ public class Main {
                                     System.out.println("***No se ingresó un valor válido***");
                                 }
                                 break;
-                            case 4: // Volver al menu principal
-                                System.out.println("Volviendo al menu principal");
+                            case 4: // Editar un usuario
+                                consola.limpiarConsola();
+                                System.out.println("Si desea editar un Empleado (Ingrese 1) o un Cliente (Ingrese 2)");
+                                int opcionEditar = sc.nextInt();
+                                sc.nextLine(); // limpiar buffer
+
+                                if (opcionEditar == 1) {
+                                    consola.limpiarConsola();
+                                    empleadoNegocio.editarEmpleado();
+                                } else if (opcionEditar == 2) {
+                                    consola.limpiarConsola();
+                                    clienteNegocio.editarCliente();
+                                } else {
+                                    System.out.println("*** No se ingresó un valor válido ***");
+                                }
                                 break;
                             default:
                                 System.out.println("Ingrese una opcion valida por favor");
                                 break;
                         }
-                    } while (opcMenuUsuario != 4);
+                    } while (opcMenuUsuario != 5);
 
                     break;
                 case 2: // Menu de libros
@@ -129,7 +142,7 @@ public class Main {
                                 break;
                             case 4: // Dar de baja un libro
                                 consola.limpiarConsola();
-                                libroNegocio.eliminarLibro();  
+                                libroNegocio.eliminarLibro();
                                 break;
                             case 5:
                                 System.out.println("Volviendo al menu principal...");
