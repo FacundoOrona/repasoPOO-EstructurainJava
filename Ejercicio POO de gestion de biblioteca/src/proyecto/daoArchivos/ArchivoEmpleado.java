@@ -30,5 +30,16 @@ public class ArchivoEmpleado {
         }
         return empleados;
     }
-}
 
+    public static void guardarListaCompleta(List<Empleado> empleados) {
+        try (BufferedWriter bw = new BufferedWriter(new FileWriter(ARCHIVO))) {
+            for (Empleado empleado : empleados) {
+                bw.write(empleado.getNombre() + " | " + empleado.getDni() + " | " + empleado.getEmail());
+                bw.newLine();
+            }
+        } catch (IOException e) {
+            System.out.println("Error al sobrescribir el archivo de empleados: " + e.getMessage());
+        }
+    }
+
+}
