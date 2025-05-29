@@ -31,4 +31,15 @@ public class ArchivoCliente {
         return clientes;
     }
 
+    public static void guardarListaCompleta(List<Cliente> clientes) {
+        try (BufferedWriter bw = new BufferedWriter(new FileWriter(ARCHIVO))) {
+            for (Cliente cliente : clientes) {
+                bw.write(cliente.getNombre() + " | " + cliente.getDni() + " | " + cliente.getEmail());
+                bw.newLine();
+            }
+        } catch (IOException e) {
+            System.out.println("Error al sobrescribir el archivo de clientes: " + e.getMessage());
+        }
+    }
+
 }
