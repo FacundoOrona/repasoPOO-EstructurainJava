@@ -2,6 +2,7 @@ package proyecto.entidades;
 
 import java.util.ArrayList;
 import java.util.Date;
+import java.util.Iterator;
 import java.util.List;
 import java.util.Scanner;
 import proyecto.daoArchivos.ArchivoEmpleado;
@@ -39,15 +40,19 @@ public class Biblioteca {
     }
 
     public boolean eliminarEmpleado(String dni) {
-        for (Empleado empleado : empleados) {
-            if (empleado.getDni().equals(dni)) {
-                empleados.remove(empleado);
-                System.out.println("Empleado " + empleado.getNombre() + " eliminado correctamente.");
-                return true;
-            }
+    Iterator<Empleado> iterator = empleados.iterator();
+    while (iterator.hasNext()) {
+        Empleado empleado = iterator.next();
+        if (empleado.getDni().equals(dni)) {
+            iterator.remove(); // forma segura
+            ArchivoEmpleado.guardarListaCompleta(empleados); // actualizar archivo
+            System.out.println("Empleado " + empleado.getNombre() + " eliminado correctamente.");
+            return true;
         }
-        return false;
     }
+    return false;
+}
+
 
     public boolean eliminarCliente(String dni) {
         for (Cliente cliente : clientes) {
