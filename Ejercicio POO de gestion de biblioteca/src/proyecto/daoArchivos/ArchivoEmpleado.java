@@ -25,7 +25,6 @@ public class ArchivoEmpleado {
                 empleados.add(Empleado.fromString(linea));
             }
         } catch (FileNotFoundException e) {
-            // No hacer nada si no existe
         } catch (IOException e) {
             System.out.println("Error al leer empleados: " + e.getMessage());
         }

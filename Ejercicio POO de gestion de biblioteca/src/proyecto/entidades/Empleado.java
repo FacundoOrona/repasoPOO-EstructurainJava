@@ -44,12 +44,12 @@ public class Empleado extends Usuario {
     }
 
     public static Empleado fromString(String linea) {
-    String[] partes = linea.split(",");
+    String[] partes = linea.split(" | ");
     if (partes.length >= 3) {
         return new Empleado(partes[0], partes[1], partes[2]);
     } else {
         System.out.println("Línea inválida: " + linea);
-        return new Empleado(); // o lanzar excepción si querés
+        return new Empleado(); 
     }
 }
 
