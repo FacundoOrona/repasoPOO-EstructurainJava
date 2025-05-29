@@ -30,7 +30,7 @@ public class Main {
             System.out.println("1 - Menu de usuaros");
             System.out.println("2 - Menu de libros");
             System.out.println("3 - Menu de prestamos");
-            System.out.println("4 - Cerrar programa");
+            System.out.println("4 - Salir del programa");
             System.out.println("==============================");
             opc = sc.nextInt();
 
@@ -44,7 +44,8 @@ public class Main {
                         System.out.println("1 - Registar nuevo usuario");
                         System.out.println("2 - Mostrar listado de usuarios");
                         System.out.println("3 - Dar de baja un usuario");
-                        System.out.println("4 - Volver al menu principal");
+                        System.out.println("4 - Editar datos de un usuario");
+                        System.out.println("5 - Volver al menu principal");
                         System.out.println("==============================");
                         opcMenuUsuario = sc.nextInt();
                         switch (opcMenuUsuario) {
@@ -106,6 +107,9 @@ public class Main {
                                 } else {
                                     System.out.println("*** No se ingresó un valor válido ***");
                                 }
+                                break;
+                            case 5:
+                                System.out.println("Volviendo al menu principal...");
                                 break;
                             default:
                                 System.out.println("Ingrese una opcion valida por favor");
