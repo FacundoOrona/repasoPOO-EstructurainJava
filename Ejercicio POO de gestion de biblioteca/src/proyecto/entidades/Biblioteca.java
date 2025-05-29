@@ -208,4 +208,28 @@ public class Biblioteca {
         sc.nextLine();
     }
 
+    public Empleado buscarEmpleadoPorDni(String dni) {
+        for (Empleado e : empleados) {
+            if (e.getDni().equals(dni))
+                return e;
+        }
+        return null;
+    }
+
+    public Cliente buscarClientePorDni(String dni) {
+        for (Cliente c : clientes) {
+            if (c.getDni().equals(dni))
+                return c;
+        }
+        return null;
+    }
+
+    public void actualizarArchivoEmpleados() {
+        ArchivoEmpleado.guardarListaCompleta(empleados);
+    }
+
+    public void actualizarArchivoClientes() {
+        ArchivoCliente.guardarListaCompleta(clientes);
+    }
+
 }
