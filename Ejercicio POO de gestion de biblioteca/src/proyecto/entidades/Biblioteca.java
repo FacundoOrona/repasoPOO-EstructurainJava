@@ -22,17 +22,17 @@ public class Biblioteca {
         usuarios = new ArrayList<>();
         prestamos = new ArrayList<>();
         empleados = ArchivoEmpleado.cargarEmpleados();
-        clientes = ArchivoCliente.cargarClientes(); 
+        clientes = ArchivoCliente.cargarClientes();
     }
 
     public void registrarEmpleado(Empleado empleado) {
         empleados.add(empleado);
-        ArchivoEmpleado.guardarEmpleado(empleado); 
+        ArchivoEmpleado.guardarEmpleado(empleado);
     }
 
     public void registrarCliente(Cliente cliente) {
         clientes.add(cliente);
-        ArchivoCliente.guardarCliente(cliente); 
+        ArchivoCliente.guardarCliente(cliente);
     }
 
     public void registrarLibro(Libro libro) {
@@ -40,24 +40,26 @@ public class Biblioteca {
     }
 
     public boolean eliminarEmpleado(String dni) {
-    Iterator<Empleado> iterator = empleados.iterator();
-    while (iterator.hasNext()) {
-        Empleado empleado = iterator.next();
-        if (empleado.getDni().equals(dni)) {
-            iterator.remove(); // forma segura
-            ArchivoEmpleado.guardarListaCompleta(empleados); // actualizar archivo
-            System.out.println("Empleado " + empleado.getNombre() + " eliminado correctamente.");
-            return true;
+        Iterator<Empleado> iterator = empleados.iterator();
+        while (iterator.hasNext()) {
+            Empleado empleado = iterator.next();
+            if (empleado.getDni().equals(dni)) {
+                iterator.remove(); // forma segura
+                ArchivoEmpleado.guardarListaCompleta(empleados); // actualizar archivo
+                System.out.println("Empleado " + empleado.getNombre() + " eliminado correctamente.");
+                return true;
+            }
         }
+        return false;
     }
-    return false;
-}
-
 
     public boolean eliminarCliente(String dni) {
-        for (Cliente cliente : clientes) {
+        Iterator<Cliente> iterator = clientes.iterator();
+        while (iterator.hasNext()) {
+            Cliente cliente = iterator.next();
             if (cliente.getDni().equals(dni)) {
-                clientes.remove(cliente);
+                iterator.remove(); // ✅ eliminar de forma segura
+                ArchivoCliente.guardarListaCompleta(clientes); // ✅ actualiza archivo
                 System.out.println("Cliente " + cliente.getNombre() + " eliminado correctamente.");
                 return true;
             }
