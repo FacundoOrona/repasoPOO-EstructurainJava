@@ -129,6 +129,9 @@ public class Biblioteca {
         Prestamo p = new Prestamo(libro, cliente, new Date());
         prestamos.add(p);
 
+        // Guardar en archivo
+        ArchivoPrestamo.guardarPrestamos(prestamos);
+
         System.out.println(
                 "Préstamo realizado correctamente del libro " + libro.getTitulo() + " al Usuario "
                         + cliente.getNombre());
