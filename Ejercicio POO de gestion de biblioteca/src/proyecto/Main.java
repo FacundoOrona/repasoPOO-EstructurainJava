@@ -127,7 +127,8 @@ public class Main {
                         System.out.println("2 - Mostrar listado de libros");
                         System.out.println("3 - Buscar libro por titulo");
                         System.out.println("4 - Dar de baja un libro");
-                        System.out.println("5 - Volver al menu principal");
+                        System.out.println("5 - Editar un libro");
+                        System.out.println("6 - Volver al menu principal");
                         System.out.println("==============================");
                         opcMenuLibros = sc.nextInt();
 
@@ -148,7 +149,11 @@ public class Main {
                                 consola.limpiarConsola();
                                 libroNegocio.eliminarLibro();
                                 break;
-                            case 5:
+                            case 5:// Editar libro
+                                consola.limpiarConsola();
+                                libroNegocio.editarLibro();
+                                break;
+                            case 6:
                                 System.out.println("Volviendo al menu principal...");
                                 break;
                             default:
