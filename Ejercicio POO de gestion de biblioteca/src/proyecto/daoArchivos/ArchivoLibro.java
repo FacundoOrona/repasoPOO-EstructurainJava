@@ -34,4 +34,14 @@ public class ArchivoLibro {
         return libros;
     }
 
+    public static void guardarListaCompleta(List<Libro> libros) {
+        try (BufferedWriter bw = new BufferedWriter(new FileWriter(ARCHIVO))) {
+            for (Libro libro : libros) {
+                bw.write(libro.getTitulo() + " | " + libro.getAutor() + " | " + libro.getAnioPublicacion());
+                bw.newLine();
+            }
+        } catch (IOException e) {
+            System.out.println("Error al sobrescribir archivo de libros: " + e.getMessage());
+        }
+    }
 }
