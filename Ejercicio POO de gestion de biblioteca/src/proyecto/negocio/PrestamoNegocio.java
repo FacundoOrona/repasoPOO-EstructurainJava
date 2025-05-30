@@ -2,6 +2,7 @@ package proyecto.negocio;
 
 import java.util.Scanner;
 
+import proyecto.daoArchivos.ArchivoPrestamo;
 import proyecto.entidades.Biblioteca;
 import proyecto.entidades.Cliente;
 import proyecto.entidades.Libro;
@@ -63,23 +64,27 @@ public class PrestamoNegocio {
     public void devolverLibroPrestado() {
         System.out.println("Ingrese el ID del libro que quiere devolver");
         int idDevolver = sc.nextInt();
+        sc.nextLine();
 
-        Prestamo prestamo = new Prestamo();
-        prestamo = biblioteca.encontrarPrestamo(idDevolver);
+        Prestamo prestamo = biblioteca.encontrarPrestamo(idDevolver);
 
-        if (prestamo == null){
-            System.out.println("Libro no encontrado o aun sigue disponible");
+        if (prestamo == null) {
+            System.out.println("Libro no encontrado o aún sigue disponible");
             System.out.println("********************************************************");
             System.out.println("|| Presione una tecla para continuar ||");
             sc.nextLine();
             return;
         }
+
         prestamo.devolverLibro();
 
-        System.out.println("El libro " + prestamo.getLibro().getTitulo() + " fue devuelto con exito");
+        // Guardar cambios en archivo
+        ArchivoPrestamo.guardarPrestamos(biblioteca.getPrestamos());
+
+        System.out.println("El libro \"" + prestamo.getLibro().getTitulo() + "\" fue devuelto con éxito");
         System.out.println("********************************************************");
         System.out.println("|| Presione una tecla para continuar ||");
         sc.nextLine();
-        sc.nextLine();
     }
+
 }

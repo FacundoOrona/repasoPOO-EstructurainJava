@@ -160,7 +160,7 @@ public class Main {
                                 System.out.println("Ingrese una opcion valida por favor");
                                 break;
                         }
-                    } while (opcMenuLibros != 5);
+                    } while (opcMenuLibros != 6);
 
                     break;
                 case 3: // Menu de prestamos

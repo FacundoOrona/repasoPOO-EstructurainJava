@@ -172,30 +172,37 @@ public class Biblioteca {
     }
 
     public Prestamo encontrarPrestamo(int idLibro) {
-        for (Prestamo prestamo : prestamos) {
-            if (prestamo.getLibro().getId() == idLibro) {
-                System.out.println("Prestamo existente \n " + prestamo.toString());
-                return prestamo;
-            }
+    for (Prestamo prestamo : prestamos) {
+        if (prestamo.getLibro().getId() == idLibro && prestamo.isActivo()) {
+            System.out.println("Préstamo existente \n" + prestamo.toString());
+            return prestamo;
         }
-        return null;
     }
+    return null;
+}
+
 
     public void devolverLibro(int idLibro) {
 
     }
 
     public void mostrarPrestamosActivos() {
-        for (Prestamo p : prestamos) {
-            if (p.isActivo()) {
-                System.out.println(p.toString());
-                System.out.println("------------------------------------------------------------------------------");
-            }
+    boolean hayActivos = false;
+    for (Prestamo p : prestamos) {
+        if (p.isActivo()) {
+            System.out.println(p.toString());
+            System.out.println("------------------------------------------------------------------------------");
+            hayActivos = true;
         }
-        System.out.println("****************************************************************************************");
-        System.out.println("|| Presione una tecla para continuar ||");
-        sc.nextLine();
     }
+    if (!hayActivos) {
+        System.out.println("No hay préstamos activos actualmente.");
+    }
+    System.out.println("****************************************************************************************");
+    System.out.println("|| Presione una tecla para continuar ||");
+    sc.nextLine();
+}
+
 
     public Libro buscarLibroPorTitulo(String titulo) {
         Libro libro = new Libro();
@@ -253,11 +260,11 @@ public class Biblioteca {
     public void actualizarLibro(Libro libroEditado) {
         for (int i = 0; i < libros.size(); i++) {
             if (libros.get(i).getId() == libroEditado.getId()) {
-                libros.set(i, libroEditado); 
+                libros.set(i, libroEditado); // Reemplaza en la lista
                 break;
             }
         }
-        ArchivoLibro.guardarListaCompleta(libros); 
+        ArchivoLibro.guardarListaCompleta(libros);
     }
 
     public static Cliente encontrarClienteStatic(String dni) {
@@ -267,7 +274,7 @@ public class Biblioteca {
                 return cliente;
             }
         }
-        return null; 
+        return null;
     }
 
     public static Libro encontrarLibroStatic(int id) {
@@ -277,7 +284,11 @@ public class Biblioteca {
                 return libro;
             }
         }
-        return null; 
+        return null;
+    }
+
+    public List<Prestamo> getPrestamos() {
+        return prestamos;
     }
 
 }
