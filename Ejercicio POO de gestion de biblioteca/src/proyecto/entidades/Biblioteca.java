@@ -253,11 +253,31 @@ public class Biblioteca {
     public void actualizarLibro(Libro libroEditado) {
         for (int i = 0; i < libros.size(); i++) {
             if (libros.get(i).getId() == libroEditado.getId()) {
-                libros.set(i, libroEditado); // Reemplaza en la lista
+                libros.set(i, libroEditado); 
                 break;
             }
         }
-        ArchivoLibro.guardarListaCompleta(libros); // Sobrescribe archivo con lista actualizada
+        ArchivoLibro.guardarListaCompleta(libros); 
+    }
+
+    public static Cliente encontrarClienteStatic(String dni) {
+        List<Cliente> clientes = ArchivoCliente.cargarClientes();
+        for (Cliente cliente : clientes) {
+            if (cliente.getDni().equals(dni)) {
+                return cliente;
+            }
+        }
+        return null; 
+    }
+
+    public static Libro encontrarLibroStatic(int id) {
+        List<Libro> libros = ArchivoLibro.cargarLibros();
+        for (Libro libro : libros) {
+            if (libro.getId() == id && libro.getDisponible()) {
+                return libro;
+            }
+        }
+        return null; 
     }
 
 }

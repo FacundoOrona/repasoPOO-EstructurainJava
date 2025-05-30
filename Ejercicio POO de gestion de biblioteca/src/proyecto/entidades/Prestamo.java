@@ -9,8 +9,7 @@ public class Prestamo {
     private Date fechaPrestamo;
     private Date fechaDevolucion = null;
 
-    public Prestamo() {
-    }
+    public Prestamo() {}
 
     public Prestamo(Libro libro, Cliente cliente, Date fechaPrestamo) {
         this.libro = libro;
@@ -52,28 +51,52 @@ public class Prestamo {
 
     @Override
     public String toString() {
-        return "Prestamo:" +
-                "\nDatos del libro: " + libro + 
-                "\nCliente: " + cliente +
-                "\nFechaPrestamo: " + fechaPrestamo +
-                "\nFechaDevolucion: " + (fechaDevolucion != null ? fechaDevolucion : "No devuelto");
+        return "Libro prestado: " + libro.getTitulo() +
+                " | Cliente: " + cliente.getNombre() +
+                " | Fecha de préstamo: " + fechaPrestamo +
+                " | Fecha de devolución: " + (fechaDevolucion != null ? fechaDevolucion : "No devuelto");
     }
 
     public void devolverLibro() {
         Date fechadev = new Date();
         setFechaDevolucion(fechadev);
         libro.devolver();
-        System.out.println("El libro ha sido devuelto con exito");
+        System.out.println("El libro ha sido devuelto con éxito");
     }
 
     public boolean isActivo() {
-        if (libro.getDisponible()) {
-            return false;
-        } else {
-            return true;
-        }
+        return !libro.getDisponible();
     }
 
-    
+    public String toDataString() {
+        return libro.getId() + " | " +
+               cliente.getDni() + " | " +
+               fechaPrestamo.getTime() + " | " +
+               (fechaDevolucion != null ? fechaDevolucion.getTime() : "null");
+    }
 
+    public static Prestamo fromDataString(String linea) {
+        String[] partes = linea.split(" \\| ");
+        if (partes.length != 4)
+            return null;
+
+        int idLibro = Integer.parseInt(partes[0].trim());
+        String dni = partes[1].trim();
+        long fechaPrestamoMillis = Long.parseLong(partes[2].trim());
+        String fechaDevolucionStr = partes[3].trim();
+
+        Cliente cliente = Biblioteca.encontrarClienteStatic(dni);
+        Libro libro = Biblioteca.encontrarLibroStatic(idLibro);
+
+        if (cliente == null || libro == null) {
+            return null;
+        }
+
+        Prestamo prestamo = new Prestamo(libro, cliente, new Date(fechaPrestamoMillis));
+        if (!fechaDevolucionStr.equals("null")) {
+            prestamo.setFechaDevolucion(new Date(Long.parseLong(fechaDevolucionStr)));
+        }
+
+        return prestamo;
+    }
 }
