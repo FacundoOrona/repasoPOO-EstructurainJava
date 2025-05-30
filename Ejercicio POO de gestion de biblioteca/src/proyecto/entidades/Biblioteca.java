@@ -246,4 +246,14 @@ public class Biblioteca {
         return null;
     }
 
+    public void actualizarLibro(Libro libroEditado) {
+        for (int i = 0; i < libros.size(); i++) {
+            if (libros.get(i).getId() == libroEditado.getId()) {
+                libros.set(i, libroEditado); // Reemplaza en la lista
+                break;
+            }
+        }
+        ArchivoLibro.guardarListaCompleta(libros); // Sobrescribe archivo con lista actualizada
+    }
+
 }
