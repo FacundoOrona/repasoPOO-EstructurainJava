@@ -237,4 +237,13 @@ public class Biblioteca {
         ArchivoCliente.guardarListaCompleta(clientes);
     }
 
+    public Libro buscarLibroPorId(int id) {
+        for (Libro libro : libros) {
+            if (libro.getId() == id) {
+                return libro;
+            }
+        }
+        return null;
+    }
+
 }
