@@ -190,7 +190,6 @@ public class Main {
                                 System.out.println("Ingrese una opcion valida por favor");
                                 break;
                         }
-
                     } while (opcMenuPrestamos != 4);
 
                     break;
