@@ -7,6 +7,7 @@ import java.util.List;
 import java.util.Scanner;
 import proyecto.daoArchivos.ArchivoEmpleado;
 import proyecto.daoArchivos.ArchivoLibro;
+import proyecto.daoArchivos.ArchivoPrestamo;
 import proyecto.daoArchivos.ArchivoCliente;
 
 public class Biblioteca {
@@ -21,7 +22,7 @@ public class Biblioteca {
     public Biblioteca() {
         libros = ArchivoLibro.cargarLibros();
         usuarios = new ArrayList<>();
-        prestamos = new ArrayList<>();
+        prestamos = ArchivoPrestamo.cargarPrestamos();
         empleados = ArchivoEmpleado.cargarEmpleados();
         clientes = ArchivoCliente.cargarClientes();
     }
