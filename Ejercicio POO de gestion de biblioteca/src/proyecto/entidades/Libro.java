@@ -74,7 +74,7 @@ public class Libro implements Prestable {
 
     @Override
     public String toString() {
-        return  "Id: " + id + " | " +
+        return "Id: " + id + " | " +
                 "Libro: " + titulo + " | " +
                 "Autor: " + autor + " | " +
                 "Año de publicación: " + anioPublicacion + " | " +
@@ -91,7 +91,6 @@ public class Libro implements Prestable {
         disponible = true;
     }
 
-
     public Libro encontrarLibroPorTitulo(String titulo, List<Libro> libros) {
         for (Libro libro : libros) {
             if (libro.getTitulo().equals(titulo)) {
@@ -99,6 +98,19 @@ public class Libro implements Prestable {
             }
         }
         return null;
+    }
+
+    public static Libro fromString(String linea) {
+        String[] partes = linea.split(" \\| ");
+        if (partes.length >= 3) {
+            String titulo = partes[0].trim();
+            String autor = partes[1].trim();
+            int anio = Integer.parseInt(partes[2].trim());
+            return new Libro(titulo, autor, anio);
+        } else {
+            System.out.println("Línea inválida de libro: " + linea);
+            return new Libro();
+        }
     }
 
 }
