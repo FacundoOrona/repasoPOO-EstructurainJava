@@ -69,6 +69,45 @@ public class LibroNegocio {
         sc.nextLine();
     }
 
-    
+    public void editarLibro() {
+        System.out.println("Ingrese el ID del libro que desea editar:");
+        int id = sc.nextInt();
+        sc.nextLine(); // Limpiar buffer
+
+        Libro libro = biblioteca.buscarLibroPorId(id);
+
+        if (libro == null) {
+            System.out.println("No se encontró un libro con ese ID.");
+            return;
+        }
+
+        System.out.println("Libro encontrado:");
+        System.out.println(libro);
+
+        System.out.println("Ingrese el nuevo título (dejar en blanco para no modificar):");
+        String nuevoTitulo = sc.nextLine();
+        if (!nuevoTitulo.isEmpty())
+            libro.setTitulo(nuevoTitulo);
+
+        System.out.println("Ingrese el nuevo autor (dejar en blanco para no modificar):");
+        String nuevoAutor = sc.nextLine();
+        if (!nuevoAutor.isEmpty())
+            libro.setAutor(nuevoAutor);
+
+        System.out.println("Ingrese el nuevo año de publicación (0 para no modificar):");
+        String entradaAnio = sc.nextLine();
+        if (!entradaAnio.isEmpty()) {
+            try {
+                int nuevoAnio = Integer.parseInt(entradaAnio);
+                if (nuevoAnio > 0)
+                    libro.setAnioPublicacion(nuevoAnio);
+            } catch (NumberFormatException e) {
+                System.out.println("Año inválido. Se mantiene el actual.");
+            }
+        }
+
+        biblioteca.actualizarLibro(libro);
+        System.out.println("Libro actualizado correctamente.");
+    }
 
 }
