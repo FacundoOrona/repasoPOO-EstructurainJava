@@ -19,7 +19,7 @@ public class Biblioteca {
     private Scanner sc = new Scanner(System.in);
 
     public Biblioteca() {
-        libros = ArchivoLibro.cargarLibros(); 
+        libros = ArchivoLibro.cargarLibros();
         usuarios = new ArrayList<>();
         prestamos = new ArrayList<>();
         empleados = ArchivoEmpleado.cargarEmpleados();
@@ -38,6 +38,7 @@ public class Biblioteca {
 
     public void registrarLibro(Libro libro) {
         libros.add(libro);
+        ArchivoLibro.guardarLibro(libro); 
     }
 
     public boolean eliminarEmpleado(String dni) {
