@@ -38,7 +38,7 @@ public class Biblioteca {
 
     public void registrarLibro(Libro libro) {
         libros.add(libro);
-        ArchivoLibro.guardarLibro(libro); 
+        ArchivoLibro.guardarLibro(libro);
     }
 
     public boolean eliminarEmpleado(String dni) {
@@ -70,9 +70,12 @@ public class Biblioteca {
     }
 
     public boolean eliminarLibro(int id) {
-        for (Libro libro : libros) {
+        Iterator<Libro> iterador = libros.iterator();
+        while (iterador.hasNext()) {
+            Libro libro = iterador.next();
             if (libro.getId() == id) {
-                libros.remove(libro);
+                iterador.remove(); // elimina de la lista
+                ArchivoLibro.guardarListaCompleta(libros); // actualiza archivo
                 return true;
             }
         }
