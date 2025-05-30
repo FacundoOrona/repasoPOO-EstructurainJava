@@ -1,4 +1,5 @@
 package proyecto.daoArchivos;
+
 import proyecto.entidades.Prestamo;
 import java.io.*;
 import java.util.ArrayList;
@@ -16,5 +17,23 @@ public class ArchivoPrestamo {
         } catch (IOException e) {
             System.out.println("Error al guardar préstamos: " + e.getMessage());
         }
+    }
+
+    public static List<Prestamo> cargarPrestamos() {
+        List<Prestamo> prestamos = new ArrayList<>();
+        try (BufferedReader br = new BufferedReader(new FileReader(ARCHIVO))) {
+            String linea;
+            while ((linea = br.readLine()) != null) {
+                Prestamo p = Prestamo.fromDataString(linea);
+                if (p != null) {
+                    prestamos.add(p);
+                }
+            }
+        } catch (FileNotFoundException e) {
+            // El archivo puede no existir al principio, está bien ignorarlo.
+        } catch (IOException e) {
+            System.out.println("Error al leer préstamos: " + e.getMessage());
+        }
+        return prestamos;
     }
 }
